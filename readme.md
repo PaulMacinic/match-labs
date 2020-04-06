@@ -31,4 +31,4 @@ Example: D:/projects
 
 7. Navigate in your favourite browser to localhost:3000
 
-8. Enjoy, you just cloned your first React app.
+8. Enjoy, you just cloned your first React app. 🎉
