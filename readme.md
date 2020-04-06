@@ -1,6 +1,6 @@
 # Installation guide
 
-### Instal Node.js
+### Install Node.js
 
 Make sure you have the latest version of Node installed on your computer. You can find and download Node at the following link:
 
