@@ -1,5 +1,17 @@
 # Installation guide
 
+### Install Chrome
+
+In order to have the same development experience and behaviour while developing we will all be using Google Chrome to run our app. Please install Chrome from the following link:
+
+[Google Chrome link](https://www.google.com/chrome/?brand=CHBD&gclid=EAIaIQobChMIxtn5oOvV6AIVA-h3Ch3cuQdXEAAYASAAEgJpNvD_BwE&gclsrc=aw.ds)
+
+### Install Visual Studio Code
+
+Through out the course we will be using Visual Studio code as our mai tool to write code. You can find and download Visual Studio Code by navigating to the following link:
+
+[Visual Studio Code link](https://code.visualstudio.com/Download)
+
 ### Install Node.js
 
 Make sure you have the latest version of Node installed on your computer. You can find and download Node at the following link:
