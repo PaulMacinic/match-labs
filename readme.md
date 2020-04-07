@@ -31,7 +31,7 @@ Example: D:/projects
    `cd D:\projects` where `D:` is your folder drive
 
 3. Once inside the folder clone our repository by running:
-   `git clone https://github.com/PaulMacinic/match-labs-course.git`
+   `git clone https://github.com/PaulMacinic/match-labs.git`
 
 4. Navigate to the folder you cloned by using:
    `cd match-labs-course`
