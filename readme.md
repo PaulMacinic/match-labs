@@ -4,7 +4,7 @@
 
 In order to have the same development experience and behaviour while developing we will all be using Google Chrome to run our app. Please install Chrome from the following link:
 
-[Google Chrome link](https://www.google.com/chrome/?brand=CHBD&gclid=EAIaIQobChMIxtn5oOvV6AIVA-h3Ch3cuQdXEAAYASAAEgJpNvD_BwE&gclsrc=aw.ds)
+[Google Chrome link](https://www.google.com/chrome)
 
 ### Install Visual Studio Code
 
