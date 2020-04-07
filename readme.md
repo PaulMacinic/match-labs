@@ -26,9 +26,12 @@ Example: D:/projects
 
 5. Once inside the folder run the following command:
    `npm install`
+   
+6. Once the modules finish installing you can start the project by running:
+   `npm start`
 
-6. Open the match-labs-course folder in VSCode
+7. Open the match-labs-course folder in VSCode
 
-7. Navigate in your favourite browser to localhost:3000
+8. Navigate in your favourite browser to localhost:3000
 
 8. Enjoy, you just cloned your first React app. 🎉
