@@ -2,7 +2,7 @@
 
 // 1. Create a functional component named PageTitle
 
-// 2. Create a folder called components inside the /src folder and add the component there
+// 2. Add the <PageTitle/> component inside the components folder
 
 // 3. Return a <h1> with some text, inside the PageTitle component
 
