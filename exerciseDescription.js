@@ -1,13 +1,15 @@
-// Create a components folder inside the /src folder
+// Now it's time to add dynamic data to our component
 
-// 1. Create a functional component named PageTitle
+// 1. Modify the <PageTitle/> component so that it accepts 2 props, fontSize and color
 
-// 2. Create a folder called components inside the /src folder and add the component there
+// 2.  In your component add those props as the values of some inline style rules
+// This is how you use inline styles in React
+/* style={{cssProperty:<< value >>, anotherCssProperty:<< value >>}} */
 
-// 3. Return a <h1> with some text, inside the PageTitle component
+/* <h1 style={{fontSize:"<< value of prop >>"}}></h1> */
 
-// 4. Import the component inside App.js and render it to the page using:
-/* import PageTitle from "./components/PageTitle" */
+// 3. In the end, you should be able to supply your component with the data through props and it should render it as style values
+/* <PageTitle fontSize={...} color={...}/> */
 
-// 5. In your App.js render the component by simply using:
-/* return <PageTitle/> */
+// Attention! Make sure the fontSize prop is passed as an int, while the color is passed as a string
+/* fontSize={25} color={"#BADa55"} */
