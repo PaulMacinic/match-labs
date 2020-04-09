@@ -2,7 +2,7 @@
 
 //todo 1. Create a fetchCats arrow function
 
-//todo 2. Perform a fetch request to the following link inside the fetchCast func.
+//todo 2. Perform a fetch request to the following link inside the fetchCats func.
 //! Remember the async/await keywords
 //* https://api.thecatapi.com/v1/images/search?limit=9&mime_types=&order=Random&size=small
 
