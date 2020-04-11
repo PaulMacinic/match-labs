@@ -8,14 +8,14 @@ Based on the props supplied, it should display different css styles.
 
 ### 1. The Button will take in 3 customizable values as follows:
 
-- variant: string
+- variant: String
   * value: "primary" or "secondary
 
-- size: string
+- size: String
   * value: "small" or "medium" or "huge"
 
-- children:
-  * value: html elements
+- children: String
+  * value: Your custom Text
 
 ### 2. The Button should be a functional component exported in the /components folder, and imported in
 
