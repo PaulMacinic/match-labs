@@ -9,7 +9,7 @@ Based on the props supplied, it should display different css styles.
 ### 1. The Button will take in 3 customizable values as follows:
 
 - variant: string
---value: "primary" or "secondary
+value: "primary" or "secondary
 
 - size: string
 -- value: "small" or "medium" or "huge"
@@ -28,10 +28,14 @@ In order to succeed you will use a couple of concepts that we learned in the fir
 ### Additional
 
 In addition, I provided a .css file for the Button. This gets imported in the <Button> component as following:
+~~~~
 import styles from Button.module.css
+~~~~
 
 Example of using styles inside your component:
+~~~~
 <button className={styles.variant}>
+~~~~
 
 Another additional React feature that you will need is the React props.children prop.
 Find out more about it here:
