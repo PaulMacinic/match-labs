@@ -17,7 +17,7 @@ Based on the props supplied, it should display different css styles.
 - children: String
   * value: Your custom Text
 
-### 2. The Button should be a functional component exported in the /components folder, and imported in
+### 2. The Button should be a functional component exported in the /components folder, and imported in App
 
 In order to succeed you will use a couple of concepts that we learned in the first lab:
 - string literals
