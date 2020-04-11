@@ -1,49 +1,38 @@
-# Installation guide
+# Week 1 - Assignment
 
-### Install Chrome
+Create a Button component that we will be using in our MatchLabs app
+(Check image in repo to see a preview of the end result)
 
-In order to have the same development experience and behaviour while developing we will all be using Google Chrome to run our app. Please install Chrome from the following link:
+// The Button component is a customizable "wrapper" that will return a <button> html element.
+// Based on the props supplied, it should display different css styles.
 
-[Google Chrome link](https://www.google.com/chrome)
+### 1. The Button will take in 3 customizable values as follows:
 
-### Install Visual Studio Code
+- variant: string
+  -- value ("primary", "secondary)
 
-Through out the course we will be using Visual Studio code as our mai tool to write code. You can find and download Visual Studio Code by navigating to the following link:
+// - size: string
+// -- value ("small", "medium", "huge)
 
-[Visual Studio Code link](https://code.visualstudio.com/Download)
+// - children:
+// --value (html elements)
 
-### Install Node.js
+### 2. The Button should be a functional component exported in the /components folder, and imported in
 
-Make sure you have the latest version of Node installed on your computer. You can find and download Node at the following link:
+// In order to succeed you will use a couple of concepts that we learned in the first lab:
+// - string literals
+// - import/export
+// - React functional components
+// - props
 
-[Node.js link](https://nodejs.org/en/)
+### Additional
 
-Please always choose the LTS version.
+// In addition, I provided a .css file for the Button. This gets imported in the <Button> component as following:
+// ! import styles from Button.module.css
 
-### Creating and running our first React app
+// ! Example of using styles inside your component:
+// <button className={styles.variant}>
 
-Please create a folder on your local machine which we will use through out the course. A recommendation is to create a folder called "projects" on your main drive, and inside it we will clone our match-labs app.
-Example: D:/projects
-
-1. Open a terminal window. On Windows, search for CMD.
-
-2. Navigate in the terminal to the projects folder by running the following command:
-   `cd D:\projects` where `D:` is your folder drive
-
-3. Once inside the folder clone our repository by running:
-   `git clone https://github.com/PaulMacinic/match-labs.git`
-
-4. Navigate to the folder you cloned by using:
-   `cd match-labs-course`
-
-5. Once inside the folder run the following command:
-   `npm install`
-   
-6. Once the modules finish installing you can start the project by running:
-   `npm start`
-
-7. Open the match-labs-course folder in VSCode
-
-8. Navigate in your favourite browser to localhost:3000
-
-8. Enjoy, you just cloned your first React app. 🎉
+// Another additional React feature that you will need is the React props.children prop.
+// Find out more about it here:
+[React props.children](https://reactjs.org/docs/glossary.html#propschildren)

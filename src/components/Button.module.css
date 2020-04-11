@@ -1,0 +1,33 @@
+.button {
+  padding: 2.2rem;
+  min-width: 3rem;
+  max-width: 32.7rem;
+  font-size: 1.4rem;
+  border-radius: 1rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.primary {
+  background-color: #da1b51;
+}
+
+.secondary {
+  background-color: transparent;
+  border: 0.1rem solid #da1b51;
+  color: #da1b51;
+}
+
+.small {
+  min-width: 15rem;
+}
+
+.medium {
+  min-width: 25rem;
+}
+
+.huge {
+  min-width: 32.7rem;
+}
