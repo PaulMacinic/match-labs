@@ -9,10 +9,10 @@ Based on the props supplied, it should display different css styles.
 ### 1. The Button will take in 3 customizable values as follows:
 
 - variant: string
-value: "primary" or "secondary
+   * value: "primary" or "secondary
 
 - size: string
--- value: "small" or "medium" or "huge"
+   * value: "small" or "medium" or "huge"
 
 - children:
 -- value: html elements
