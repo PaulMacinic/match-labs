@@ -3,7 +3,7 @@
 Create a Button component that we will be using in our MatchLabs app
 (Check image in repo to see a preview of the end result)
 
-The Button component is a customizable "wrapper" that will return a <button> html element.
+The Button component is a customizable "wrapper" that will return a button html element.
 Based on the props supplied, it should display different css styles.
 
 ### 1. The Button will take in 3 customizable values as follows:
