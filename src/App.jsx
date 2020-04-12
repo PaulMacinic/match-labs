@@ -1,10 +1,7 @@
 import React from "react";
-import PageTitle from "./components/PageTitle";
 
 const App = () => {
-  // To pass props just add them to the component as following:
-  /* <PageTitle propName={valueToPass} /> */
-  return <PageTitle />;
+  return <h3>Hellowz</h3>;
 };
 
 export default App;

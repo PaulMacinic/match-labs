@@ -1,0 +1,69 @@
+.hero {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: aliceblue;
+  padding: 5rem;
+  margin-bottom: 5rem;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+.name {
+  margin-bottom: 1.8rem;
+}
+
+.tagsTitle {
+  margin-bottom: 0.8rem;
+}
+
+.description {
+  font-size: 1.4rem;
+  padding: 2.4rem 0;
+  background-color: #efefef;
+}
+
+.heading {
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+@media all and (max-width: 540px) {
+  .description {
+    margin-bottom: 0;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .profile {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+  }
+
+  .hero {
+    flex: 0 0 50vw;
+    max-width: 72rem;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .rightSide {
+    padding-top: 15.4rem;
+    overflow-y: scroll;
+    flex-grow: 1;
+  }
+
+  .description,
+  .objectives,
+  .name {
+    padding: 0 5.7rem;
+  }
+
+  .description {
+    padding: 5rem 5.7rem;
+    margin: 0;
+  }
+}
