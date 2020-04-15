@@ -1,10 +1,11 @@
 import React from "react";
-import Profile from "./screens/Profile";
+import Likes from "./screens/Likes";
 
 const App = () => {
   return (
     <>
-      <Profile></Profile>
+      <Likes></Likes>
+      {/* <Profile></Profile> */}
     </>
   );
 };
