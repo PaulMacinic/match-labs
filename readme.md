@@ -1,5 +1,7 @@
-### Week 2 - exercise 1
+### Week 2 - exercise 2
 
-Using the mocks.js file, for each of the "labs" entries, render a card with the matching data in the Likes page.
+1. When clicking on a Card from the Likes page, you should be redirected to profile/:labId
 
-The card should take a value for each prop that it accepts. This means you should also render the Technologies component inside it.
+2. In the Profile page, you should populate the components with the data coming from the mocks.
+
+3. Each Card should render a Profile component with the corresponding data

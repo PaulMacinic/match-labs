@@ -16,6 +16,7 @@ section {
 }
 
 .tagsTitle {
+  padding: 5rem 5.7rem;
   margin-bottom: 0.8rem;
 }
 
@@ -28,6 +29,10 @@ section {
 .heading {
   text-transform: uppercase;
   margin-bottom: 0.8rem;
+}
+
+.objectives {
+  margin: 5rem 0;
 }
 
 @media all and (max-width: 540px) {

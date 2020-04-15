@@ -1,9 +1,10 @@
 import React from "react";
+import Profile from "./screens/Profile";
 
 const App = () => {
   return (
     <>
-      <h3>Hellowz</h3>
+      <Profile></Profile>
     </>
   );
 };
