@@ -18,7 +18,7 @@ export const labs = [
   },
   {
     id: 3,
-    name: "Deep Learning in automotive industry",
+    name: "Deep Learning",
     url: "https://obscurial.dk/match-labs/veoneer-logo.svg",
     objectives: "Familiarizarea cursanților cu algoritmii de detecție.",
     description:
