@@ -1,5 +1,6 @@
 export const labs = [
   {
+    id: 1,
     name: "Match Labs",
     url: "https://obscurial.dk/match-labs/eoh-logo.svg",
     objectives:
@@ -7,6 +8,7 @@ export const labs = [
     description: "Front-end & Back-end Programming Consultancy",
   },
   {
+    id: 2,
     name: "Cybersecurity",
     url: "https://obscurial.dk/match-labs/atos.svg",
     objectives:
@@ -15,6 +17,7 @@ export const labs = [
       "Numărul 1 în Europa în servicii de Cloud, Cybersecurity și High-Performance Computing, grupul Atos oferă soluții end-to-end de Orchestrated Hybrid Cloud, Big Data, Business Applications și Digital Workplace. Grupul este Partenerul Global pentru Tehnologia Informației al Jocurilor Olimpice & Parlimpice și operează sub brandurile Atos, Atos | Syntel și Unify. Atos este o Societate Europeană (SE), listată la Bursa din Paris cu indicele CAC 40.",
   },
   {
+    id: 3,
     name: "Deep Learning in automotive industry",
     url: "https://obscurial.dk/match-labs/veoneer-logo.svg",
     objectives: "Familiarizarea cursanților cu algoritmii de detecție.",
