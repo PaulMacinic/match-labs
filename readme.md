@@ -5,3 +5,5 @@
 2. In the Profile page, you should populate the components with the data coming from the mocks.
 
 3. Each Card should render a Profile component with the corresponding data
+
+<!-- git checkout week2-exercise2 -->

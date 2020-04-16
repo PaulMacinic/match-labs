@@ -15,8 +15,11 @@ section {
   margin-bottom: 1.8rem;
 }
 
+.skills {
+  padding: 0 5.7rem;
+}
+
 .tagsTitle {
-  padding: 5rem 5.7rem;
   margin-bottom: 0.8rem;
 }
 
