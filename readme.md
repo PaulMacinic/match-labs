@@ -15,7 +15,7 @@
 
 6. EXTRA: implement a button or some sorts of toggle on the Library page that toggles between the user roles of our APP.
    When the toggle is pressed and the value of it is companies, you should display candidates, on next toggle, it should display labs.
-   API endpoint for candidates: https://match-labs-api.herokuapp.com/api/no_auth/candidates
+   API endpoint for candidates: https://match-labs-api.herokuapp.com/api/no_auth/candidates (at the moment it displays only 1 message)
 
 ### Implementation details
 
