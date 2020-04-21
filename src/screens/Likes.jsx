@@ -1,14 +1,17 @@
 import React from "react";
 import styles from "./Likes.module.css";
-
-import { labs, technologies } from "../mocks";
 import Card from "../components/Card";
 import Loader from "../components/Loader";
+import { useFetch, API_Company } from "../utility";
 
 const Likes = (props) => {
-  return (
+  const [data, loading] = useFetch(API_Company);
+
+  return loading ? (
+    <Loader />
+  ) : (
     <div className={styles.content}>
-      {labs.map((lab) => (
+      {data.map((lab) => (
         <div
           key={lab.id}
           onClick={() => props.history.push(`/profile/${lab.id}`)}
@@ -16,8 +19,8 @@ const Likes = (props) => {
           <Card
             outline
             name={lab.name}
-            imgUrl={lab.url}
-            technologies={technologies}
+            imgUrl={lab.company.profile_image}
+            technologies={lab.technologies}
           ></Card>
         </div>
       ))}
