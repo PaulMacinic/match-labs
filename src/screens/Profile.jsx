@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import Card from "../components/Card";
 import styles from "./Profile.module.css";
 import Tags from "../components/Tags";
-import { API } from "../static/Services";
+import fetchJson from "../static/Services";
 import Loader from '../components/Loader';
 
 const defaultState = {
@@ -16,16 +16,16 @@ const Profile = (props) => {
   const id = props.match.params.id;
 
   useEffect( () => {
-    API.fetchLab(id).then(result => {
+    fetchJson('labs', id).then(result => {
         setState( {
           lab: result,
           loading: ''
         })
     });
     }, [id]);
-
   return (
     <>
+      {state.loading}
       <div className={styles.profile}>
         <div className={styles.hero}>
           {state.lab.company && <Card imgUrl={state.lab.company.profile_image}></Card>}

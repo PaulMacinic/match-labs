@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
-import likesStyles from "./Likes.module.css";
-import profileStyles from "./Profile.module.css";
 import Card from "../components/Card";
-import { API } from "../static/Services";
+import fetchJson from "../static/Services";
 import Loader from '../components/Loader';
 import buttonStyles from "../components/Button.module.css";
 
@@ -22,7 +20,8 @@ const Library = (props) =>  {
     const role = state.isCompanyMode ? 'Company' : 'Candidate';
 
     useEffect( () => {
-        API.fetchAllLabs().then(labs => {
+        fetchJson('labs').then(labs => {
+            console.log(labs)
             setState(prevState => {
                 return {
                     ...prevState,
@@ -31,7 +30,8 @@ const Library = (props) =>  {
                 }
             });
         });
-        API.fetchAllCandidates().then(candidates => {
+        
+        fetchJson('candidates').then(candidates => {
             setState(prevState => {
                 return {
                     ...prevState,
@@ -49,7 +49,7 @@ const Library = (props) =>  {
             children={role}
         />
     )};    
-    const butonOrLoading = state.loading === '' ? buttonRole() : state.loading;
+    const buttonOrLoading = state.loading === '' ? buttonRole() : state.loading;
 
     const handleOnButtonRoleClick = (e) => {
         e.preventDefault();
@@ -90,9 +90,10 @@ const Library = (props) =>  {
 
     const screenByRole = state.isCompanyMode ? companyCandidates : candidateCards;
 
+
     return (
       <div>
-        {butonOrLoading}
+        {buttonOrLoading}
         {screenByRole}
       </div>
     );
