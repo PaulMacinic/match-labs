@@ -1,9 +1,9 @@
 import React from "react";
-
-import Card from "../components/Card";
-import styles from "./Profile.module.css";
 import { labs } from "../mocks";
+
+import styles from "./Profile.module.css";
 import Tags from "../components/Tags";
+import Card from "../components/Card";
 
 const Profile = (props) => {
   const lab = labs.find((lab) => lab.id === parseInt(props.match.params.id));
@@ -30,7 +30,8 @@ const Profile = (props) => {
 
           <section className={styles.description}>
             <h4 className={styles.heading}>About</h4>
-            {lab.description}
+
+            <p>{lab.description}</p>
           </section>
         </div>
       </div>

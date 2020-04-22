@@ -1,0 +1,25 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 28rem));
+  grid-gap: 1.6rem;
+}
+
+.cardListItem {
+  cursor: pointer;
+}
+
+@media all and (max-width: 1200px) {
+  .cards {
+    justify-content: center;
+  }
+
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 27rem));
+  }
+}
+
+@media all and (max-width: 540px) {
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 27rem));
+  }
+}

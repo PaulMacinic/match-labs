@@ -173,6 +173,11 @@ p {
   font-weight: 100;
 }
 
+a {
+  color: initial;
+  text-decoration: none;
+}
+
 .accent {
   color: #da1b51;
 }
