@@ -8,20 +8,18 @@ const Card = ({ outline, imgUrl, name, technologies }) => {
 
   return (
     <div className={`${styles.card} ${withBorder}`}>
-      <>
-        <img
-          className={`${styles.image}`}
-          src={imgUrl}
-          alt={name}
-          style={{ top: outline ? "11.5rem" : "" }}
-        />
-        {technologies && (
-          <div className={styles.tagsContainer}>
-            <Tags tags={technologies}></Tags>
-          </div>
-        )}
-        <h4 className={styles.title}>{name || ""}</h4>
-      </>
+      <img
+        className={`${styles.image}`}
+        src={imgUrl}
+        alt={name}
+        style={{ top: outline ? "11.5rem" : "" }}
+      />
+      {technologies && (
+        <div className={styles.tagsContainer}>
+          <Tags tags={technologies}></Tags>
+        </div>
+      )}
+      <h4 className={styles.title}>{name || ""}</h4>
     </div>
   );
 };
