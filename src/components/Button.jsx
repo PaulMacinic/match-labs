@@ -7,10 +7,10 @@ const ButtonComponent = (props) => {
       <button
         className={` ${styles["button"]}
         ${styles[props.variant]} ${styles[props.size]}`}
+        onClick={props.handleClick}
       >
-        {props.children}
+        {props.text}
       </button>
-      ;
     </>
   );
 };

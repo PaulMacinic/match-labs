@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Likes.module.css";
 import Card from "../components/Card";
 import Loader from "../components/Loader";
-import { useFetch, API_Company } from "../utility";
+import fetchAPI from "../utility";
+import { technologies } from "../mocks";
 
 const Likes = (props) => {
-  const [data, loading] = useFetch(API_Company);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const type = props.type ? props.type : "lab";
+
+  async function FetchMyAPI() {
+    const res = await fetchAPI(type);
+    const data = [...res];
+    setData(data);
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    FetchMyAPI();
+  }, []);
 
   return loading ? (
     <Loader />
@@ -14,13 +28,14 @@ const Likes = (props) => {
       {data.map((lab) => (
         <div
           key={lab.id}
-          onClick={() => props.history.push(`/profile/${lab.id}`)}
-        >
+          onClick={() =>  props.history.push(`/profile/${type}/${lab.id}`)} >
           <Card
             outline
             name={lab.name}
-            imgUrl={lab.company.profile_image}
-            technologies={lab.technologies}
+            imgUrl={
+              type === "lab" ? lab.company.profile_image : lab.profile_image
+            }
+            technologies={type === "lab" ? lab.technologies : technologies}
           ></Card>
         </div>
       ))}

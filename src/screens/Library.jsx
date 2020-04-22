@@ -1,60 +1,72 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ButtonComponent from "../components/Button";
 import Loader from "../components/Loader";
+import styles from "../screens/Likes.module.css";
+import fetchAPI from "../utility";
 import Card from "../components/Card";
-import { useFetch, API_Candidates } from "../utility";
-import Likes from "./Likes";
-import styles from "./Profile.module.css";
-import Tags from "../components/Tags";
+import { technologies } from "../mocks";
 
 const Library = () => {
-  const [dataCandidate, loadingCandidate] = useFetch(API_Candidates);
-  const [display, setDisplay] = useState(true);
+  const [toggle, setToggle] = useState(true);
+  const [labs, setLabs] = useState([]);
+  const [candidate, setCandidate] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  const handleClick = () => {
+    setToggle(!toggle);
+  };
+
+  async function FetchMyAPI() {
+    const res = await fetchAPI("lab");
+    const res2 = await fetchAPI("candidate");
+    const lab = [...res];
+    const candidate = [...res2];
+    setLabs(lab);
+    setCandidate(candidate);
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    FetchMyAPI();
+  }, []);
   return (
     <>
-      <div onClick={() => setDisplay(!display)}>
-        ;
-        <ButtonComponent size="small" variant="primary">
-          Toggle
-        </ButtonComponent>
-      </div>
-      {display ? (
-        loadingCandidate && display ? (
-          <Loader />
-        ) : (
-          dataCandidate.map((item) => (
-            <div className={styles.profile} key={item.id}>
-              <div className={styles.hero}>
-                <Card imgUrl={item.profile_image}></Card>
-              </div>
-
-              <div className={styles.rightSide}>
-                <h3
-                  className={styles.name}
-                >{`${item.first_name} ${item.last_name}`}</h3>
-
-                <section className={styles.skills}>
-                  <p className={styles.tagsTitle}>Technologies</p>
-                  {item.technologies && <Tags tags={item.technologies}></Tags>}
-                </section>
-
-                <section className={styles.description}>
-                  <h4 className={styles.heading}>About</h4>
-                  {item.description}
-                </section>
-
-                <section className={styles.objectives}>
-                  <h4 className={styles.heading}>Contact data:</h4>
-                  <p>Email : {item.email}</p>
-                  <p>Phone : {item.phone}</p>
-                </section>
-              </div>
+      <ButtonComponent
+        text={toggle ? "Labs" : "Candidates"}
+        variant={"primary"}
+        size="small"
+        handleClick={handleClick}
+      />
+      <br/>
+      <br/>
+      {loading ? (
+        <Loader />
+      ) : toggle ? (
+        <div className={styles.content}>
+          {candidate.map((lab) => (
+            <div key={lab.id}>
+              <Card
+                outline
+                name={lab.name}
+                imgUrl={toggle ? lab.profile_image : lab.company.profile_image}
+                technologies={toggle ? technologies : lab.technologies}
+              ></Card>
             </div>
-          ))
-        )
+          ))}
+        </div>
       ) : (
-        <Likes />
+        <div className={styles.content}>
+          {labs.map((lab) => (
+            <div key={lab.id}>
+              <Card
+                outline
+                name={lab.name}
+                imgUrl={toggle ? lab.profile_image : lab.company.profile_image}
+                technologies={toggle ? technologies : lab.technologies}
+              ></Card>
+            </div>
+          ))}
+        </div>
       )}
     </>
   );

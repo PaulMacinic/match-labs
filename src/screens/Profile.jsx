@@ -1,13 +1,31 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from "react";
+
 import Card from "../components/Card";
 import styles from "./Profile.module.css";
 import Tags from "../components/Tags";
-import { useFetch, API_Company } from "../utility";
+import fetchAPI from "../utility";
 import Loader from "../components/Loader";
 
 const Profile = (props) => {
-  const [data, loading] = useFetch(API_Company);
-  const lab = data.find((lab) => lab.id === parseInt(props.match.params.id));
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const type = props.match.params.type;
+
+  async function FetchMyAPI() {
+    const res = await fetchAPI(type);
+    const data =
+      await type === "lab"
+        ? res.find((lab) => lab.id === parseInt(props.match.params.id))
+        : res[0]; /* in our case for path "/profile/candidate/11" */
+        
+    setData(data);
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    FetchMyAPI();
+  }, []);
 
   return loading ? (
     <Loader />
@@ -15,25 +33,29 @@ const Profile = (props) => {
     <>
       <div className={styles.profile}>
         <div className={styles.hero}>
-          <Card imgUrl={lab.company.profile_image}></Card>
+          <Card
+            imgUrl={
+              type === "lab" ? data.company.profile_image : data.profile_image
+            }
+          ></Card>
         </div>
 
         <div className={styles.rightSide}>
-          <h3 className={styles.name}>{lab.name}</h3>
+          <h3 className={styles.name}>{data.name}</h3>
 
           <section className={styles.skills}>
             <p className={styles.tagsTitle}>Technologies</p>
-            {lab.technologies && <Tags tags={lab.technologies}></Tags>}
+            {data.technologies && <Tags tags={data.technologies}></Tags>}
           </section>
 
           <section className={styles.objectives}>
             <h4 className={styles.heading}>Objectives</h4>
-            <p>{lab.objectives}</p>
+            <p>{data.objectives}</p>
           </section>
 
           <section className={styles.description}>
             <h4 className={styles.heading}>About</h4>
-            {lab.company.description}
+            {data.description}
           </section>
         </div>
       </div>
