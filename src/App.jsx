@@ -4,8 +4,6 @@ import Likes from "./screens/Likes";
 import Library from "./screens/Library";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Toggle from "./components/Toggle";
-import Account from "./screens/Account";
-import Register from "./screens/Register";
 
 const App = () => {
   return (
