@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./CandidateForm.module.css";
 import Button from "./Button";
 
-const CandidateForm = ({ fields }) => {
+const CandidateForm = ({ fields, onSubmit }) => {
   const [values, setValues] = useState(fields);
 
   const onChange = (e) => {
@@ -13,9 +13,14 @@ const CandidateForm = ({ fields }) => {
     setValues(newValues);
   };
 
+  const formHandler = (e) => {
+    e.preventDefault();
+    onSubmit(values);
+  };
+
   return (
     <>
-      <form className={styles.form}>
+      <form onSubmit={(e) => formHandler(e)} className={styles.form}>
         {values.map((field) => (
           <div key={field.name} className={styles.field}>
             <input

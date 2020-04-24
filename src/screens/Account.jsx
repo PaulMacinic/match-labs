@@ -4,12 +4,20 @@ import { EDIT_CANDIDATE_FIELDS } from "../mocks";
 import PageTitle from "../components/PageTitle";
 
 const Account = () => {
+  const onFormSubmit = (values) => {
+    console.log(values);
+  };
+
   return (
     <>
       <PageTitle>
         <h3>Edit account</h3>
       </PageTitle>
-      ;<CandidateForm fields={EDIT_CANDIDATE_FIELDS}></CandidateForm>
+      ;
+      <CandidateForm
+        onSubmit={onFormSubmit}
+        fields={EDIT_CANDIDATE_FIELDS}
+      ></CandidateForm>
     </>
   );
 };
