@@ -45,21 +45,28 @@ export const technologies = [
   { id: 1, name: "Lisp" },
   { id: 2, name: "DataFlex" },
   { id: 3, name: "Kaleidoscope" },
-  // { id: 4, name: "Constraint Handling" },
-  // { id: 5, name: "JASS" },
-  // { id: 6, name: "PL-11" },
-  // { id: 7, name: "Javascript" },
-  // { id: 8, name: "IBM RPG" },
-  // { id: 9, name: "OBJ2" },
-  // { id: 10, name: "OpenVera" },
-  // { id: 11, name: "Agora" },
-  // { id: 12, name: "Singularity" },
-  // { id: 13, name: "TUTOR" },
-  // { id: 14, name: "ELAN" },
-  // { id: 15, name: "MARK-IV" },
-  // { id: 16, name: "F#" },
-  // { id: 17, name: "IBM Informix" },
-  // { id: 18, name: "Pizza" },
-  // { id: 19, name: "TeX" },
-  // { id: 20, name: "ESPOL" },
+];
+
+export const EDIT_CANDIDATE_FIELDS = [
+  {
+    name: "description",
+    value: "Software engineer",
+  },
+  { name: "email", value: "paul.macinic@e-spres-oh.com" },
+  { name: "first_name", value: "Paul" },
+  { name: "last_name", value: "Macinic" },
+  { name: "phone", value: "0771466059" },
+  {
+    name: "profile_image",
+    value: "https://obscurial.dk/match-labs/paul.jpg",
+  },
+];
+
+export const CREATE_CANDIDATE_FIELDS = [
+  { value: "", name: "description", placeholder: "Description" },
+  { value: "", name: "email", placeholder: "Email" },
+  { value: "", name: "first_name", placeholder: "First name" },
+  { value: "", name: "last_name", placeholder: "Last name" },
+  { value: "", name: "phone", placeholder: "Phone" },
+  { value: "", name: "profile_image", placeholder: "Profile image url" },
 ];

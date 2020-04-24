@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { labs } from "../mocks";
 
 import styles from "./Profile.module.css";
 import Tags from "../components/Tags";
