@@ -14,8 +14,6 @@ const App = () => {
       <Switch>
         <Route path="/profile/:id" component={Profile}></Route>
         <Route path="/library" component={Library}></Route>
-        <Route path="/account" component={Account}></Route>
-        <Route path="/register" component={Register}></Route>
         <Route path="/" component={Likes}></Route>
       </Switch>
     </BrowserRouter>
