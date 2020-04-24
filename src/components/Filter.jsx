@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Filter.module.css";
 
 const options = [
@@ -6,10 +6,27 @@ const options = [
   { name: "all", id: 1 },
 ];
 
-const Filter = () => {
+const Filter = ({ handleItemClick }) => {
+  const [activeItem, setActiveItem] = useState(1);
+
+  const onFilterItemClick = (id, name) => {
+    handleItemClick(id, name);
+    setActiveItem(id);
+  };
+
   return (
     <div className={styles.filter}>
-      <div className={styles.option}>I'm a fiter item</div>
+      {options.map((option) => (
+        <div
+          onClick={() => onFilterItemClick(option.id, option.name)}
+          key={option.id}
+          className={`${styles.option} ${
+            option.id === activeItem ? styles.active : ""
+          }`}
+        >
+          {option.name}
+        </div>
+      ))}
     </div>
   );
 };
