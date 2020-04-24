@@ -3,7 +3,7 @@
 In this assignment we create a form which will be used on the register a candidate, and to edit an existing candidate.
 Please check the root folder and inside the `/lab-resources` folder you will find 2 images showcasing a preview of the final work.
 
-The form will have to accept an object as a `inputs` prop. From this object, the form will have to build its own input fields.
+The form will have to accept an object as an `inputs` prop. From this object, the form will have to build its own input fields.
 You can find the example object in the mocks.js file.
 
 The form should be a separate component called `<CandidateForm>` which will reside in a `Account` page that we must create as well. Make sure to include the apropriate `CandidateForm.module.css`
