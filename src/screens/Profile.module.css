@@ -23,9 +23,14 @@ section {
   margin-bottom: 0.8rem;
 }
 
+.objectives,
+.name {
+  padding: 0 5.7rem;
+}
+
 .description {
   font-size: 1.4rem;
-  padding: 2.4rem 0;
+  padding: 3.5rem 5.7rem;
   background-color: #efefef;
 }
 
@@ -62,16 +67,5 @@ section {
     padding-top: 15.4rem;
     overflow-y: scroll;
     flex-grow: 1;
-  }
-
-  .description,
-  .objectives,
-  .name {
-    padding: 0 5.7rem;
-  }
-
-  .description {
-    padding: 5rem 5.7rem;
-    margin: 0;
   }
 }

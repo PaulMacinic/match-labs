@@ -8,7 +8,7 @@ const Toggle = () => {
   };
 
   return (
-    <div>
+    <div style={{ position: "fixed", top: "2rem", left: "2rem" }}>
       <button onClick={toggleRole}>Toggle</button>
       <br />
       <br />
