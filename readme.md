@@ -1,6 +1,6 @@
 # Week3 assignment
 
-In this assignment we create a form which will be used to register a candidate, and to edit an existing candidate.
+In this assignment we create a form which will be used to register and to edit an existing candidate.
 Please check the root folder and inside the `/lab-resources` folder you will find 2 images showcasing a preview of the final work.
 
 The form will have to accept an object as an `inputs` prop. From this object, the form will have to build its own input fields.
