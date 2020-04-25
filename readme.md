@@ -1,13 +1,8 @@
-# Week4 exercise1
+# Week4 exercise2
 
-Develop a way for a user to log out. When logging out we should notify the API, as well as our client.
+On the Logout page that you created in the previous exercise, you should now also clear the information that lives in the Context.
 
-The API endpoint for logging out is below. Make sure to use the DELETE method when making the request.
-https://match-labs-api.herokuapp.com/api/users/sign_out
+When the Logout page mounts, call a function that sets the `user Context data` equal to `false`.
 
-The suggested way of doing this exercise is by creating a /logout route.
-When navigating to the /login route, the page mounts, and then you will clear the localstorage and make the apropriate request to the API.
-
-When logging out, you should be navigated to the /login page.
-
-In order to test this functionality just navigate to the /logout page.
+The main trick of the exercise is to figure out how can you call a function from the Context inside the Logout page.
+Hint: Use the knowledge you gained in lab 3 :)
