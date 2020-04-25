@@ -139,7 +139,6 @@ export const register = async (data) => {
 };
 
 export const assignRole = async (data) => {
-  console.log(data);
   const res = await fetch(
     `https://match-labs-api.herokuapp.com/api/candidates`,
     {
@@ -148,6 +147,25 @@ export const assignRole = async (data) => {
       body: JSON.stringify(data),
     }
   ).catch((e) => console.log(e));
+
+  const json = await res.json();
+  return json;
+};
+
+export const login = async (data) => {
+  console.log(data);
+  const res = await fetch(
+    `https://match-labs-api.herokuapp.com/api/users/sign_in`,
+    {
+      method: "POST",
+      headers: { ...config.authorization, ...config.headers },
+      body: JSON.stringify({
+        user: data,
+      }),
+    }
+  );
+
+  config.setAuthToken(res);
 
   const json = await res.json();
   return json;
