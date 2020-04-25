@@ -194,6 +194,16 @@ export const login = async (data) => {
   return json;
 };
 
+export const logout = async (data) => {
+  const res = await fetch(
+    `https://match-labs-api.herokuapp.com/api/users/sign_out`,
+    {
+      method: "DELETE",
+      headers: { ...config.authorization, ...config.headers },
+    }
+  ).catch((e) => console.log(e));
+};
+
 export const me = async (data) => {
   const res = await fetch(`https://match-labs-api.herokuapp.com/api/me`, {
     method: "GET",

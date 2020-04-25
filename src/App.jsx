@@ -11,6 +11,7 @@ import Library from "./screens/Library";
 import Toggle from "./components/Toggle";
 import Login from "./screens/Login";
 import Loader from "./components/Loader";
+import Logout from "./screens/Logout";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/account" component={Account}></Route>
           <Route path="/register" component={Register}></Route>
           <Route path="/login" component={Login}></Route>
+          <Route path="/logout" component={Logout}></Route>
           <Route
             path="/"
             render={() =>
