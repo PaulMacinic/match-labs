@@ -5,7 +5,7 @@ import { login } from "../utils/request";
 import PageTitle from "../components/PageTitle";
 import Button from "../components/Button";
 
-const Login = (props) => {
+const Login = () => {
   const [fields, setFields] = useState({
     email: "Email",
     password: "Password",
