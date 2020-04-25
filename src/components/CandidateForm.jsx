@@ -31,7 +31,7 @@ const CandidateForm = ({ fields, onSubmit }) => {
               required
               onChange={onChange}
               value={field.value}
-              placeholder={field.placeholder}
+              placeholder={field.placeholder || ""}
               name={field.name}
             ></input>
           </div>

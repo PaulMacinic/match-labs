@@ -15,6 +15,30 @@ const format = (data) => {
       };
 };
 
+const formatMe = (data) =>
+  data.matcher_type === "Candidate"
+    ? {
+        role: data.matcher_type.toLowerCase(),
+        personal: {
+          first_name: data.matcher.first_name,
+          last_name: data.matcher.last_name,
+          email: data.matcher.email,
+          description: data.matcher.description,
+          phone: data.matcher.phone,
+          profile_image: data.matcher.profile_image,
+        },
+      }
+    : {
+        role: data.matcher_type.toLowerCase(),
+        personal: {
+          name: data.matcher.name,
+          email: data.matcher.email,
+          description: data.matcher.description,
+          phone: data.matcher.phone,
+          profile_image: data.matcher.profile_image,
+        },
+      };
+
 const config = {
   setAuthToken: (res) => {
     const token = res.headers.entries().next().value[1];
@@ -168,4 +192,15 @@ export const login = async (data) => {
 
   const json = await res.json();
   return json;
+};
+
+export const me = async (data) => {
+  const res = await fetch(`https://match-labs-api.herokuapp.com/api/me`, {
+    method: "GET",
+    headers: { ...config.authorization, ...config.headers },
+  }).catch((e) => console.log(e));
+
+  const json = await res.json();
+
+  return json.error ? false : formatMe(json);
 };
