@@ -15,6 +15,24 @@ const format = (data) => {
       };
 };
 
+const config = {
+  setAuthToken: (res) => {
+    const token = res.headers.entries().next().value[1];
+    localStorage.setItem("token", token);
+  },
+  get authorization() {
+    return {
+      Authorization: localStorage.getItem("token"),
+    };
+  },
+  get headers() {
+    return {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    };
+  },
+};
+
 export const fetchMatches = async () => {
   const url = role === "company" ? `${baseUrl}/candidates` : `${baseUrl}/labs`;
 
@@ -103,4 +121,34 @@ export const fetchLikes = () => {
         });
 
   return data;
+};
+
+export const register = async (data) => {
+  const res = await fetch(`https://match-labs-api.herokuapp.com/api/users`, {
+    method: "POST",
+    headers: config.headers,
+    body: JSON.stringify({ user: data }),
+  }).catch((e) => {
+    console.log(e);
+  });
+
+  config.setAuthToken(res);
+
+  const json = await res.json();
+  return json;
+};
+
+export const assignRole = async (data) => {
+  console.log(data);
+  const res = await fetch(
+    `https://match-labs-api.herokuapp.com/api/candidates`,
+    {
+      method: "POST",
+      headers: { ...config.headers, ...config.authorization },
+      body: JSON.stringify(data),
+    }
+  ).catch((e) => console.log(e));
+
+  const json = await res.json();
+  return json;
 };

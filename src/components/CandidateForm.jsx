@@ -15,7 +15,11 @@ const CandidateForm = ({ fields, onSubmit }) => {
 
   const formHandler = (e) => {
     e.preventDefault();
-    onSubmit(values);
+    const obj = {};
+    values.forEach((item) => {
+      obj[item.name] = item.value;
+    });
+    onSubmit(obj);
   };
 
   return (
@@ -24,6 +28,7 @@ const CandidateForm = ({ fields, onSubmit }) => {
         {values.map((field) => (
           <div key={field.name} className={styles.field}>
             <input
+              required
               onChange={onChange}
               value={field.value}
               placeholder={field.placeholder}

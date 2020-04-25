@@ -69,4 +69,5 @@ export const CREATE_CANDIDATE_FIELDS = [
   { value: "", name: "last_name", placeholder: "Last name" },
   { value: "", name: "phone", placeholder: "Phone" },
   { value: "", name: "profile_image", placeholder: "Profile image url" },
+  { value: "", name: "password", placeholder: "Password" },
 ];
