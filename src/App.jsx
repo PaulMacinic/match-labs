@@ -19,6 +19,7 @@ const App = () => {
     const onMount = async () => {
       const user = await me();
       setUser(user);
+      localStorage.setItem("role", user.role);
     };
     onMount();
   }, []);
