@@ -153,7 +153,6 @@ export const assignRole = async (data) => {
 };
 
 export const login = async (data) => {
-  console.log(data);
   const res = await fetch(
     `https://match-labs-api.herokuapp.com/api/users/sign_in`,
     {
