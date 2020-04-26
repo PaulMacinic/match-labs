@@ -8,6 +8,7 @@ const CandidateForm = ({ fields, onSubmit }) => {
   const [values, setValues] = useState(fields);
 
   const onChange = (e) => {
+    // Create values array copy
     // Find index of element we want to change and update array at that index
     const newValues = [...values];
     const index = newValues.findIndex((value) => value.name === e.target.name);
