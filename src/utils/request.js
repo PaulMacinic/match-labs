@@ -153,12 +153,13 @@ export const assignRole = async (data) => {
 };
 
 export const login = async (data) => {
-  console.log(data);
+  // Make POST request to sign_in
+  // Set authToken
   const res = await fetch(
     `https://match-labs-api.herokuapp.com/api/users/sign_in`,
     {
       method: "POST",
-      headers: { ...config.authorization, ...config.headers },
+      headers: { ...config.headers },
       body: JSON.stringify({
         user: data,
       }),
