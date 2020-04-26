@@ -19,7 +19,7 @@ const formatMe = (data) =>
   data.matcher_type === "Candidate"
     ? {
         role: data.matcher_type.toLowerCase(),
-        id: data.matcher.matcher_id,
+        id: data.matcher_id,
         personal: {
           first_name: data.matcher.first_name,
           last_name: data.matcher.last_name,
@@ -31,7 +31,7 @@ const formatMe = (data) =>
       }
     : {
         role: data.matcher_type.toLowerCase(),
-        id: data.matcher.matcher_id,
+        id: data.matcher_id,
         personal: {
           name: data.matcher.name,
           email: data.matcher.email,

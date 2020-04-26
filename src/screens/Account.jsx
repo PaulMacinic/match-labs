@@ -14,7 +14,7 @@ const Account = () => {
       name: key,
       value: user.personal[key],
     }));
-
+    console.log(user);
     setFields(newFields);
   }, [user]);
 
