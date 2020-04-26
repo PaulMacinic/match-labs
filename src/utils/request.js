@@ -20,6 +20,7 @@ const formatMe = (data) =>
     ? {
         role: data.matcher_type.toLowerCase(),
         personal: {
+          id: data.matcher.matcher_id,
           first_name: data.matcher.first_name,
           last_name: data.matcher.last_name,
           email: data.matcher.email,
@@ -31,6 +32,7 @@ const formatMe = (data) =>
     : {
         role: data.matcher_type.toLowerCase(),
         personal: {
+          id: data.matcher.matcher_id,
           name: data.matcher.name,
           email: data.matcher.email,
           description: data.matcher.description,
@@ -195,13 +197,10 @@ export const login = async (data) => {
 };
 
 export const logout = async (data) => {
-  const res = await fetch(
-    `https://match-labs-api.herokuapp.com/api/users/sign_out`,
-    {
-      method: "DELETE",
-      headers: { ...config.authorization, ...config.headers },
-    }
-  ).catch((e) => console.log(e));
+  await fetch(`https://match-labs-api.herokuapp.com/api/users/sign_out`, {
+    method: "DELETE",
+    headers: { ...config.authorization, ...config.headers },
+  }).catch((e) => console.log(e));
 };
 
 export const me = async (data) => {
