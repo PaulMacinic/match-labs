@@ -13,6 +13,7 @@ const Login = () => {
 
   const onInputChange = (e) => {
     // use e.target.name and e.target.value to create a new object
+    // Merge with oldValues
     const obj = { [e.target.name]: e.target.value };
     setFields((oldValues) => ({ ...oldValues, ...obj }));
   };

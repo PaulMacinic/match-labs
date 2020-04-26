@@ -14,6 +14,8 @@ const CandidateForm = ({ fields, onSubmit }) => {
   };
 
   const formHandler = (e) => {
+    // prevent default
+    // massage the data sent
     e.preventDefault();
     const obj = {};
     values.forEach((item) => {
