@@ -13,6 +13,12 @@ import Login from "./screens/Login";
 import Loader from "./components/Loader";
 
 const App = () => {
+  // setUser in state
+  // Check if /me is loggedIn
+  // Redirect if not logged in
+
+  // Persist user with context
+
   const [user, setUser] = useState(null);
 
   useEffect(() => {

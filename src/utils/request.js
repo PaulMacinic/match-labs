@@ -197,6 +197,8 @@ export const login = async (data) => {
 };
 
 export const me = async (data) => {
+  // Fetch /me
+  // return false or formatMe(json)
   const res = await fetch(`https://match-labs-api.herokuapp.com/api/me`, {
     method: "GET",
     headers: { ...config.authorization, ...config.headers },
