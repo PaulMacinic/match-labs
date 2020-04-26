@@ -124,6 +124,8 @@ export const fetchLikes = () => {
 };
 
 export const register = async (data) => {
+  // make a POST request with the email and password
+  // Set auth token in localstorage
   const res = await fetch(`https://match-labs-api.herokuapp.com/api/users`, {
     method: "POST",
     headers: config.headers,
@@ -139,7 +141,7 @@ export const register = async (data) => {
 };
 
 export const assignRole = async (data) => {
-  console.log(data);
+  // Make POST request with user data
   const res = await fetch(
     `https://match-labs-api.herokuapp.com/api/candidates`,
     {

@@ -9,6 +9,8 @@ const Register = () => {
   const [isLoading, setIsLoading] = useState(null);
 
   const onFormSubmit = async (values) => {
+    // call the register API function
+    // if user call the assignUserRole function
     setIsLoading(true);
     const { email, password, ...rest } = values;
     const user = await register({
@@ -21,6 +23,7 @@ const Register = () => {
   };
 
   const assignUserRole = async (email, values) => {
+    // Call assignRole to pass user data to API
     const account = await assignRole({ email, ...values });
     console.log(account);
   };
