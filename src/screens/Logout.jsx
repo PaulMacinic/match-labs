@@ -7,6 +7,7 @@ const Logout = () => {
       localStorage.setItem("role", "");
       localStorage.setItem("token", "");
       await logout();
+      window.location.replace("/login");
     };
     onMount();
   }, []);
