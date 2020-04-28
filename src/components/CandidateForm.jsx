@@ -28,7 +28,6 @@ const CandidateForm = ({ fields, onSubmit }) => {
         {values.map((field) => (
           <div key={field.name} className={styles.field}>
             <input
-              required
               onChange={onChange}
               value={field.value}
               placeholder={field.placeholder}

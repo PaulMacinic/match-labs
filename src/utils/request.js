@@ -1,4 +1,4 @@
-const baseUrl = "https://match-labs-api.herokuapp.com/api/no_auth";
+const baseUrl = "https://match-labs-api.herokuapp.com/api";
 
 const role = localStorage.getItem("role");
 
@@ -124,33 +124,10 @@ export const fetchLikes = () => {
 };
 
 export const register = async (data) => {
-  // make a POST request with the email and password
-  // Set auth token in localstorage
-  const res = await fetch(`https://match-labs-api.herokuapp.com/api/users`, {
-    method: "POST",
-    headers: config.headers,
-    body: JSON.stringify({ user: data }),
-  }).catch((e) => {
-    console.log(e);
-  });
-
-  config.setAuthToken(res);
-
-  const json = await res.json();
-  return json;
+  // 1. make a POST request with the email and password
+  // Set auth token in localstorage using config
 };
 
 export const assignRole = async (data) => {
-  // Make POST request with user data
-  const res = await fetch(
-    `https://match-labs-api.herokuapp.com/api/candidates`,
-    {
-      method: "POST",
-      headers: { ...config.headers, ...config.authorization },
-      body: JSON.stringify(data),
-    }
-  ).catch((e) => console.log(e));
-
-  const json = await res.json();
-  return json;
+  // 2. Make POST request with user data
 };
