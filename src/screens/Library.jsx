@@ -1,38 +1,64 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+
+import styles from "./Library.module.css";
+import PageTitle from "../components/PageTitle";
+
+import { fetchMatches, fetchLikes } from "../utils/request";
+import Loader from "../components/Loader";
 import Card from "../components/Card";
-import {fetchMatches } from "../utils/services";
-import Loader from '../components/Loader';
-import styles from './Library.module.css';
+import Filter from "../components/Filter";
 import { Link } from "react-router-dom";
 
-const Library = (props) =>  {
-    const [matches, setMatches] = useState(null);
+const Library = (props) => {
+  const [matches, setMatches] = useState(null);
+  const [likes, setLikes] = useState(null);
+  const [data, setData] = useState(null);
+  const role = localStorage.getItem("role");
 
-    useEffect(() => {
-        const onMount = async () => {
-          const matches = await fetchMatches();
-          setMatches(matches);
-        };
-        onMount();
-      }, []);
-    
-    if (!matches) return <Loader />;
+  useEffect(() => {
+    const onMount = () => {
+      getData();
+    };
+    onMount();
+  }, []);
 
-    return (
-        <div className={"box-wide"}>
-            <div className={styles.cards}>
-            {matches.map((match) => (
-                <Link key={match.id} to={`/profile/${match.id}`}>
-                    <Card
-                        imgUrl={match.profile_image}
-                        name={match.name}
-                        technologies={match.technologies}
-                    />
-                </Link>
-            ))}
-            </div>
-        </div>
-    );
+  const getData = async () => {
+    const matches = await fetchMatches();
+    setMatches(matches);
+    const likes = fetchLikes();
+    setLikes([likes]);
+    setData([likes]);
   };
-  
-  export default Library;
+
+  const onFilterClick = (id, name) => {
+    const data = name === "matches" ? matches : likes;
+    setData(data);
+  };
+
+  if (!data) return <Loader />;
+
+  return (
+    <>
+      <PageTitle>
+        <h3>Library</h3>
+      </PageTitle>
+      <div className={"box-wide"}>
+        <Filter handleItemClick={onFilterClick} />
+        <div className={styles.cards}>
+          {data.map((match) => (
+            <Link key={match.id} to={`/profile/${match.id}`}>
+              <Card
+                outline={role === "candidate"}
+                imgUrl={match.profile_image}
+                name={match.name}
+                technologies={match.technologies}
+              ></Card>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Library;

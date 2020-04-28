@@ -1,27 +1,15 @@
-# Week2 assignment
+# Week3 assignment
 
-1. Create a new page called Library.
-   This will be the page where we display all our likes and matches for a candidate.
+In this assignment we create a form which will be used to register and to edit an existing candidate.
+Please check the root folder and inside the `/lab-resources` folder you will find 2 images showcasing a preview of the final work.
 
-2. In the Library page we will have to call our API endpoint in order to get the labs.
-   API endpoint: https://match-labs-api.herokuapp.com/api/no_auth/labs
+The form component will have to accept an object as an `inputs={inputsData}` prop. From this object, the form will have to build its own input fields.
+You can find the local mock objects in the mocks.js file.
 
-3. For each lab in the data, render a Card component with prop values being dynamic data from the API
+The form should be a separate component called `<CandidateForm>` which will reside once in the `Account` page, and once in the `Register` page. We need to create those pages and add `routes` to them. Make sure to include the apropriate `CandidateForm.module.css`, `Register.module.css`, and `Account.module.css`
 
-4. On clicking on a card, you should be nevigated to the /profile:id page, as we did in lesson2, but this time data should come from the API
-   API endpoint: https://match-labs-api.herokuapp.com/api/no_auth/labs/:id
+For each input of the form, we should have the possibility to display a default value, or a placeholder. The reason for this is that in our app we need to display the inputs with the default value on the "Edit account" page, while on the "Create candidate" page we will display the inputs that have a placeholder value.
 
-5. For both the Profile and the Library pages, while the data fetches from the API, display a <Loader> component that you will find in the Components folder.
+The form will need to have a submit button, that when clicked, will pass all the data of the form, to the parent component, which in our case is the `Account` page.
 
-6. EXTRA: implement a button or some sorts of toggle on the Library page that toggles between the user roles of our APP.
-   When the toggle is pressed and the value of it is companies, you should display candidates, on next toggle, it should display labs.
-   API endpoint for candidates: https://match-labs-api.herokuapp.com/api/no_auth/candidates (at the moment it displays only 1 message)
-
-### Implementation details
-
-##### Data Fetching:
-
-- Add another layer that handles our API operations.
-  You can add a new JS utility file which will be responsible only for fetch()-ing and preparing data for the component, so our component doesn't know about any implementation details of the fetching.
-
-- use fetch() and async functions for fetching data
+As a final step, in the `Account` page `console.log()` the received values of the form.

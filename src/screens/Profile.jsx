@@ -1,31 +1,30 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
-import Card from "../components/Card";
 import styles from "./Profile.module.css";
 import Tags from "../components/Tags";
-import { fetchProfile } from "../utils/services";
-import Loader from '../components/Loader';
+import Card from "../components/Card";
+import { fetchProfile } from "../utils/request";
+import Loader from "../components/Loader";
 
 const Profile = (props) => {
   const [profile, setProfile] = useState(null);
-  const id = props.match.params.id;
 
-  useEffect( () => {
+  useEffect(() => {
     const onMount = async () => {
+      const id = props.match.params.id;
       const profile = await fetchProfile(id);
       setProfile(profile);
     };
-    
     onMount();
-    }, []);
+  }, []);
 
-  if (!profile) return <Loader />
+  if (!profile) return <Loader />;
 
   return (
     <>
       <div className={styles.profile}>
         <div className={styles.hero}>
-          {profile.company && <Card imgUrl={profile.company.profile_image}></Card>}
+          <Card imgUrl={profile.profile_image}></Card>
         </div>
 
         <div className={styles.rightSide}>
@@ -43,7 +42,8 @@ const Profile = (props) => {
 
           <section className={styles.description}>
             <h4 className={styles.heading}>About</h4>
-            {profile.description}
+
+            <p>{profile.description}</p>
           </section>
         </div>
       </div>

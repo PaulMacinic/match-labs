@@ -1,24 +1,23 @@
 import React, { useState } from "react";
-import buttonStyles from "../components/Button.module.css";
 
 const Toggle = () => {
-    const [role, setRole] = useState('company');
+  const [role, setRole] = useState("company");
 
-    const toggleRole = () => {
-        const currentRole = localStorage.getItem("role");
-        const newRole = currentRole === "company" ? "candidate" : "company";
-        
-        setRole(newRole);
-        localStorage.setItem("role", newRole);
-    };
+  const toggleRole = () => {
+    const currentRole = localStorage.getItem("role");
+    const newRole = currentRole === "company" ? "candidate" : "company";
+    localStorage.setItem("role", newRole);
+    setRole(newRole);
+  };
 
-    return (
-        <button
-            onClick={() => toggleRole()}
-            className={`${buttonStyles.button} ${role === 'company' ? buttonStyles.primary : buttonStyles.secondary} ${buttonStyles.small}`}
-            children={role}
-        />
-    )
+  return (
+    <div style={{ position: "fixed", top: "2rem", left: "2rem" }}>
+      <button onClick={toggleRole}>Toggle</button>
+      <br />
+      <br />
+      <div>Current role is {role}</div>
+    </div>
+  );
 };
 
 export default Toggle;
