@@ -1,1 +1,6 @@
-alert("If you see this, you successfully installed your first React App! See you on Thursday!");
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./static/Base.css";
+
+ReactDOM.render(<App />, document.querySelector("#root"));
