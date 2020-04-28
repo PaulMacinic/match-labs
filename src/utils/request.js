@@ -1,4 +1,4 @@
-const baseUrl = "https://match-labs-api.herokuapp.com/api/no_auth";
+const baseUrl = "https://match-labs-api.herokuapp.com/api";
 
 const role = localStorage.getItem("role");
 
@@ -153,21 +153,6 @@ export const assignRole = async (data) => {
 };
 
 export const login = async (data) => {
-  // Make POST request to sign_in
+  // 3. Make POST request to sign_in
   // Set authToken
-  const res = await fetch(
-    `https://match-labs-api.herokuapp.com/api/users/sign_in`,
-    {
-      method: "POST",
-      headers: { ...config.headers },
-      body: JSON.stringify({
-        user: data,
-      }),
-    }
-  );
-
-  config.setAuthToken(res);
-
-  const json = await res.json();
-  return json;
 };
