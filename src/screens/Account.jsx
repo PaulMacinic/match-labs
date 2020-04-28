@@ -14,10 +14,6 @@ const Account = () => {
         <h3>Edit account</h3>
       </PageTitle>
       {/* Mount CandidateForm with EDIT_CANDIDATE_FIELDS */}
-      <CandidateForm
-        onSubmit={onFormSubmit}
-        fields={EDIT_CANDIDATE_FIELDS}
-      ></CandidateForm>
     </>
   );
 };

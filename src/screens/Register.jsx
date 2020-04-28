@@ -14,10 +14,6 @@ const Register = () => {
         <h3>Register</h3>
       </PageTitle>
       {/* Mount CandidateForm with EDIT_CANDIDATE_FIELDS */}
-      <CandidateForm
-        onSubmit={onFormSubmit}
-        fields={CREATE_CANDIDATE_FIELDS}
-      ></CandidateForm>
     </>
   );
 };
