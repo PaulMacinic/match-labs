@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import styles from "./CandidateForm.module.css";
 import Button from "./Button";
@@ -7,7 +7,7 @@ const CandidateForm = ({ fields, onSubmit }) => {
   const [values, setValues] = useState(fields);
 
   const onChange = (e) => {
-    const newValues = [...values];
+    const newValues = values.map((obj) => ({ ...obj }));
     const index = newValues.findIndex((value) => value.name === e.target.name);
     newValues[index].value = e.target.value;
     setValues(newValues);
