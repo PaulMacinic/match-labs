@@ -1,21 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import CandidateForm from "../components/CandidateForm";
 import PageTitle from "../components/PageTitle";
-import { AppContext } from "../Context";
 import Loader from "../components/Loader";
+import { EDIT_CANDIDATE_FIELDS } from "../mocks";
 
 const Account = () => {
-  const { user } = useContext(AppContext);
-  const [fields, setFields] = useState(null);
+  // 1. Subscribe to AppContext data
+  const [fields, setFields] = useState(EDIT_CANDIDATE_FIELDS);
 
   useEffect(() => {
-    const newFields = Object.keys(user.personal).map((key) => ({
-      name: key,
-      value: user.personal[key],
-    }));
-    setFields(newFields);
-  }, [user]);
+    // 2. Map with object keys and format your data before setting it in state
+  }, []);
 
   const onFormSubmit = (values) => {
     console.log(values);

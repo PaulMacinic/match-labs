@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import styles from "./Library.module.css";
 import PageTitle from "../components/PageTitle";
@@ -8,12 +8,15 @@ import Loader from "../components/Loader";
 import Card from "../components/Card";
 import Filter from "../components/Filter";
 import { Link } from "react-router-dom";
+import { AppContext } from "../Context";
 
 const Library = (props) => {
   const [matches, setMatches] = useState(null);
   const [likes, setLikes] = useState(null);
   const [data, setData] = useState(null);
   const role = localStorage.getItem("role");
+  const { user } = useContext(AppContext);
+  console.log(user);
 
   useEffect(() => {
     const onMount = () => {
