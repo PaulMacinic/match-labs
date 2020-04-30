@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import { AppContext } from "./Context";
 import { me } from "./utils/request";
 import Profile from "./screens/Profile";
 import Likes from "./screens/Likes";
@@ -13,36 +12,26 @@ import Login from "./screens/Login";
 import Loader from "./components/Loader";
 
 const App = () => {
-  // setUser in state
+  // 1. setUser in state
   // Check if /me is loggedIn
   // Redirect if not logged in
 
   // Persist user with context
 
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const onMount = async () => {
-      const user = await me();
-      setUser(user);
-      localStorage.setItem("role", user.role);
-    };
-    onMount();
-  }, []);
-
-  if (user === null) return <Loader />;
+  // if (user === null) return <Loader />;
 
   return (
-    <AppContext.Provider value={{ user }}>
-      <BrowserRouter>
-        <Toggle />
-        <Switch>
-          <Route path="/profile/:id" component={Profile}></Route>
-          <Route path="/library" component={Library}></Route>
-          <Route path="/account" component={Account}></Route>
-          <Route path="/register" component={Register}></Route>
-          <Route path="/login" component={Login}></Route>
-          <Route
+    // 2. Add Context provider
+    <BrowserRouter>
+      <Toggle />
+      <Switch>
+        <Route path="/profile/:id" component={Profile}></Route>
+        <Route path="/library" component={Library}></Route>
+        <Route path="/account" component={Account}></Route>
+        <Route path="/register" component={Register}></Route>
+        <Route path="/login" component={Login}></Route>
+        <Route path="/" component={Likes}></Route>
+        {/* <Route
             path="/"
             render={() =>
               user ? (
@@ -55,10 +44,9 @@ const App = () => {
                 />
               )
             }
-          ></Route>
-        </Switch>
-      </BrowserRouter>
-    </AppContext.Provider>
+          ></Route> */}
+      </Switch>
+    </BrowserRouter>
   );
 };
 
