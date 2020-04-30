@@ -9,7 +9,7 @@ const CandidateForm = ({ fields, onSubmit }) => {
   const onChange = (e) => {
     const newValues = values.map((obj) => ({ ...obj }));
     const index = newValues.findIndex((value) => value.name === e.target.name);
-    newValues[index].value = e.target.value;
+    newValues[index] = { ...newValues[index], value: e.target.value };
     setValues(newValues);
   };
 
