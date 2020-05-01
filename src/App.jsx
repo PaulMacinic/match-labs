@@ -19,8 +19,8 @@ const App = () => {
   useEffect(() => {
     const onMount = async () => {
       const user = await me();
-      setUser(user);
       localStorage.setItem("role", user.role);
+      setUser(user);
     };
     onMount();
   }, []);
@@ -28,7 +28,7 @@ const App = () => {
   if (user === null) return <Loader />;
 
   return (
-    <AppContext.Provider value={{ user }}>
+    <AppContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <Toggle />
         <Switch>
@@ -40,9 +40,9 @@ const App = () => {
           <Route path="/logout" component={Logout}></Route>
           <Route
             path="/"
-            render={() =>
+            render={(props) =>
               user ? (
-                <Likes />
+                <Likes {...props} />
               ) : (
                 <Redirect
                   to={{

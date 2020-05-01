@@ -16,7 +16,6 @@ const Library = (props) => {
   const [data, setData] = useState(null);
   const role = localStorage.getItem("role");
   const { user } = useContext(AppContext);
-  console.log(user);
 
   useEffect(() => {
     const onMount = () => {
