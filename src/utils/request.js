@@ -44,12 +44,12 @@ const formatMe = (data) =>
 const formatMatch = (data) => {
   return role === "candidate"
     ? {
-        id: data.id,
+        id: data.lab.id,
         name: data.lab.name,
         profile_image: "data.lab.company.profile_image",
       }
     : {
-        id: data.id,
+        id: data.candidate.id,
         name: `${data.candidate.first_name} ${data.candidate.last_name}`,
         profile_image: data.candidate.profile_image,
         technologies: data.candidate.technologies,
@@ -116,7 +116,7 @@ export const fetchAllLikes = async () => {
   });
 
   const json = await res.json();
-  return json;
+  return json.map((like) => format(like));
 };
 
 export const register = async (data) => {

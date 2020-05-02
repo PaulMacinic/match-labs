@@ -8,12 +8,13 @@ import Loader from "../components/Loader";
 import Card from "../components/Card";
 import Filter from "../components/Filter";
 import { Link } from "react-router-dom";
+import { AppContext } from "../Context";
 
 const Library = (props) => {
   const [matches, setMatches] = useState(null);
   const [likes, setLikes] = useState(null);
   const [data, setData] = useState(null);
-  const role = localStorage.getItem("role");
+  const { user } = useContext(AppContext);
 
   useEffect(() => {
     const onMount = () => {
@@ -48,7 +49,7 @@ const Library = (props) => {
           {data.map((match) => (
             <Link key={match.id} to={`/profile/${match.id}`}>
               <Card
-                outline={role === "candidate"}
+                outline={user.role === "candidate"}
                 imgUrl={match.profile_image || match.company.profile_image}
                 name={match.name}
                 technologies={match.technologies}
