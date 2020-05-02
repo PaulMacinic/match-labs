@@ -3,19 +3,17 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "./Library.module.css";
 import PageTitle from "../components/PageTitle";
 
-import { fetchMatches, fetchLikes } from "../utils/request";
+import { fetchMatches, fetchLikes, fetchAllLikes } from "../utils/request";
 import Loader from "../components/Loader";
 import Card from "../components/Card";
 import Filter from "../components/Filter";
 import { Link } from "react-router-dom";
-import { AppContext } from "../Context";
 
 const Library = (props) => {
   const [matches, setMatches] = useState(null);
   const [likes, setLikes] = useState(null);
   const [data, setData] = useState(null);
   const role = localStorage.getItem("role");
-  const { user } = useContext(AppContext);
 
   useEffect(() => {
     const onMount = () => {
@@ -27,9 +25,9 @@ const Library = (props) => {
   const getData = async () => {
     const matches = await fetchMatches();
     setMatches(matches);
-    const likes = fetchLikes();
-    setLikes([likes]);
-    setData([likes]);
+    const likes = await fetchAllLikes();
+    setLikes(likes);
+    setData(likes);
   };
 
   const onFilterClick = (id, name) => {
@@ -51,7 +49,7 @@ const Library = (props) => {
             <Link key={match.id} to={`/profile/${match.id}`}>
               <Card
                 outline={role === "candidate"}
-                imgUrl={match.profile_image}
+                imgUrl={match.profile_image || match.company.profile_image}
                 name={match.name}
                 technologies={match.technologies}
               ></Card>
