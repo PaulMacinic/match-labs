@@ -40,9 +40,6 @@ const Library = (props) => {
 
   return (
     <>
-      <PageTitle>
-        <h3>Library</h3>
-      </PageTitle>
       <div className={"box-wide"}>
         <Filter handleItemClick={onFilterClick} />
         <div className={styles.cards}>

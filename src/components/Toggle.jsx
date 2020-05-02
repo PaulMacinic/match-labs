@@ -15,6 +15,7 @@ const Toggle = () => {
   return (
     <div
       style={{
+        display: "none",
         position: "fixed",
         top: "2rem",
         left: "2rem",

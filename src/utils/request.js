@@ -56,6 +56,13 @@ const formatMatch = (data) => {
       };
 };
 
+function handleErrors(response) {
+  if (!response.ok) {
+    console.log(response.statusText);
+  }
+  return response;
+}
+
 const config = {
   setAuthToken: (res) => {
     const token = res.headers.entries().next().value[1];
@@ -177,7 +184,9 @@ export const me = async (data) => {
   const res = await fetch(`https://match-labs-api.herokuapp.com/api/me`, {
     method: "GET",
     headers: { ...config.authorization, ...config.headers },
-  }).catch((e) => console.log(e));
+  });
+
+  handleErrors(res);
 
   const json = await res.json();
 
@@ -191,7 +200,7 @@ export const editAccount = async (id, data) => {
     method: "PUT",
     headers: { ...config.headers, ...config.authorization },
     body: JSON.stringify(data),
-  }).catch((e) => console.log(e));
+  });
 
   const json = await res.json();
   return json;

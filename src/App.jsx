@@ -13,6 +13,7 @@ import Login from "./screens/Login";
 import Loader from "./components/Loader";
 import Logout from "./screens/Logout";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Navigation from "./components/Navigation";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -31,18 +32,21 @@ const App = () => {
   return (
     <AppContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
-        <Toggle />
-        <Switch>
-          <Route path="/register" component={Register}></Route>
-          <Route path="/login" component={Login}></Route>
-          <Route path="/logout" component={Logout}></Route>
+        <Navigation />
+        <section className={"app"}>
+          <Toggle />
+          <Switch>
+            <Route path="/register" component={Register}></Route>
+            <Route path="/login" component={Login}></Route>
+            <Route path="/logout" component={Logout}></Route>
 
-          <ProtectedRoute path="/library" component={Library} />
-          <ProtectedRoute path="/profile/:id" component={Profile} />
-          <ProtectedRoute path="/account" component={Account} />
-          <ProtectedRoute exact path="/" component={Likes} />
-          <ProtectedRoute path="*">404</ProtectedRoute>
-        </Switch>
+            <ProtectedRoute path="/library" component={Library} />
+            <ProtectedRoute path="/profile/:id" component={Profile} />
+            <ProtectedRoute path="/account" component={Account} />
+            <ProtectedRoute exact path="/" component={Likes} />
+            <ProtectedRoute path="*">404</ProtectedRoute>
+          </Switch>
+        </section>
       </BrowserRouter>
     </AppContext.Provider>
   );

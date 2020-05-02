@@ -1,0 +1,22 @@
+.navigation {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  top: 5rem;
+}
+
+.navigationItem {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin-left: 4.2rem;
+  cursor: pointer;
+}
+
+.active {
+  color: #da1b51;
+  border-bottom: 0.2rem solid #da1b51;
+  padding-bottom: 0.1rem;
+  font-weight: bold;
+}
