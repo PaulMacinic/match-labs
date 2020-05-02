@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "./Library.module.css";
 import PageTitle from "../components/PageTitle";
 
-import { fetchMatches, fetchLikes, fetchAllLikes } from "../utils/request";
+import { fetchMatches, fetchAllLikes } from "../utils/request";
 import Loader from "../components/Loader";
 import Card from "../components/Card";
 import Filter from "../components/Filter";
