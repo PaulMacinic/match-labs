@@ -40,7 +40,8 @@ const App = () => {
           <ProtectedRoute path="/library" component={Library} />
           <ProtectedRoute path="/profile/:id" component={Profile} />
           <ProtectedRoute path="/account" component={Account} />
-          <ProtectedRoute path="/" component={Likes} />
+          <ProtectedRoute exact path="/" component={Likes} />
+          <ProtectedRoute path="*">404</ProtectedRoute>
         </Switch>
       </BrowserRouter>
     </AppContext.Provider>
