@@ -34,7 +34,7 @@ const formatMe = (data) =>
           description: data.matcher.description,
           phone: data.matcher.phone,
           profile_image: data.matcher.profile_image,
-          technologies: formatTechnologies(data.matcher.technologies),
+          // 1. technologies: formatTechnologies(data.matcher.technologies),
         },
       }
     : {
@@ -90,15 +90,8 @@ const config = {
 };
 
 export const fetchTechnologies = async () => {
-  const res = await fetch(`${baseUrl}/technologies`, {
-    method: "GET",
-  });
-
-  const json = await res.json();
-  return json.map((t) => ({
-    value: t.id,
-    label: t.name,
-  }));
+  // 2. Make GET request to /technologies
+  // format data {value, label}
 };
 
 export const fetchMatches = async () => {

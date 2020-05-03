@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 
 import styles from "./CandidateForm.module.css";
 import Button from "./Button";
@@ -7,15 +7,11 @@ import Select from "react-select";
 import { fetchTechnologies } from "../utils/request";
 
 const CandidateForm = ({ fields, onSubmit }) => {
+  // 1. Set values and technologies
   const [values, setValues] = useState(fields);
-  const [technologies, setTechnologies] = useState(null);
 
   useEffect(() => {
-    const onMount = async () => {
-      const technologies = await fetchTechnologies();
-      setTechnologies(technologies);
-    };
-    onMount();
+    // 2. Get technologies from API
   }, []);
 
   const onChange = (e) => {
@@ -26,13 +22,9 @@ const CandidateForm = ({ fields, onSubmit }) => {
   };
 
   const onSelectChange = (selected) => {
-    const newValues = [...values];
-    const index = newValues.findIndex((value) => value.name === "technologies");
-    newValues[index] = {
-      ...newValues[index],
-      value: selected.map((s) => s.value),
-    };
-    setValues(newValues);
+    // 3. copy values
+    // find index of technologies input
+    // loop through the selected values
   };
 
   const formHandler = (e) => {
@@ -49,38 +41,21 @@ const CandidateForm = ({ fields, onSubmit }) => {
 
   return (
     <>
-      <form onSubmit={(e) => formHandler(e)} className={styles.form}>
-        {values.map(
-          (field) =>
-            field.name !== "technologies" && (
-              <div key={field.name} className={styles.field}>
-                <input
-                  required
-                  onChange={onChange}
-                  value={field.value}
-                  placeholder={field.placeholder || ""}
-                  name={field.name}
-                ></input>
-              </div>
-            )
-        )}
-        <Select
-          name={"technologies"}
-          onChange={onSelectChange}
-          isMulti
-          options={technologies}
-          placeholder={"Technologies"}
-          styles={{
-            control: () => ({
-              padding: "0.6rem 0 0.7rem 0.5rem",
-              display: "flex",
-              borderRadius: ".3rem",
-              border: "0.1rem solid #ebebeb",
-              fontSize: "1.1rem",
-              marginBottom: "1.6rem",
-            }),
-          }}
-        />
+      <form onSubmit={formHandler} className={styles.form}>
+        {values.map((field) => (
+          // 4. Check if field is not technologies
+          <div key={field.name} className={styles.field}>
+            <input
+              required
+              onChange={onChange}
+              value={field.value}
+              placeholder={field.placeholder || ""}
+              name={field.name}
+            ></input>
+          </div>
+          // 5. Bring prebuilt select
+          // Add onSelectChange and options
+        ))}
 
         <Button type={"submit"} variant={"secondary"} size={"medium"}>
           Submit
