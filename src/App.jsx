@@ -30,7 +30,8 @@ const App = () => {
   if (user === null) return <Loader />;
 
   return (
-    <AppContext.Provider value={{ user, setUser }}>
+    // 1. Pass setUser to Context
+    <AppContext.Provider value={{ user }}>
       <BrowserRouter>
         <Navigation />
         <section className={"app"}>

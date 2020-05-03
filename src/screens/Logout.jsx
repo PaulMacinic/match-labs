@@ -4,14 +4,13 @@ import { useContext } from "react";
 import { AppContext } from "../Context";
 
 const Logout = () => {
-  const { setUser } = useContext(AppContext);
-
+  // 1. get the setUser function from Context
+  // setUser to false
   useEffect(() => {
     const onMount = async () => {
       localStorage.setItem("role", "");
       localStorage.setItem("token", "");
       await logout();
-      setUser(false);
       window.location.replace("/");
     };
     onMount();
