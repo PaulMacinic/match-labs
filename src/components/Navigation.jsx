@@ -33,25 +33,18 @@ const navigationItems = [
 ];
 
 const Navigation = () => {
+  // 1. Bring user from context
   const { user } = useContext(AppContext);
+
+  // 2. Filter navigationItems item.protected === !!user
   const filteredItems = navigationItems.filter(
     (item) => item.protected === !!user
   );
 
   return (
+    // 3. Filter navigationItems item.protected === !!user
     <div className={styles.navigation}>
-      <div className={"box-wide"}>
-        {filteredItems.map((navItem) => (
-          <NavLink
-            className={styles.navigationItem}
-            to={`/${navItem.route}`}
-            key={navItem.id}
-            activeClassName={styles.active}
-          >
-            {navItem.route}
-          </NavLink>
-        ))}
-      </div>
+      <div className={"box-wide"}>{/* 4. Render a NavLink */}</div>
     </div>
   );
 };
