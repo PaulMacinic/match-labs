@@ -185,14 +185,7 @@ export const me = async (data) => {
 };
 
 export const editAccount = async (id, data) => {
-  const entity = role === "candidate" ? `candidates` : `companies`;
-
-  const res = await fetch(`${baseUrl}/${entity}/${id}`, {
-    method: "PUT",
-    headers: { ...config.headers, ...config.authorization },
-    body: JSON.stringify(data),
-  }).catch((e) => console.log(e));
-
-  const json = await res.json();
-  return json;
+  // 1. establish entity
+  // 2. PUT to ${baseUrl}/${entity}/${id}
+  // 3. return data
 };
