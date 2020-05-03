@@ -34,7 +34,6 @@ const navigationItems = [
 
 const Navigation = () => {
   // 1. Bring user from context
-  const { user } = useContext(AppContext);
 
   // 2. Filter navigationItems item.protected === !!user
 
