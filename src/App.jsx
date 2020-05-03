@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import { AppContext } from "./Context";
 import { me } from "./utils/request";
@@ -12,7 +12,6 @@ import Toggle from "./components/Toggle";
 import Login from "./screens/Login";
 import Loader from "./components/Loader";
 import Logout from "./screens/Logout";
-import ProtectedRoute from "./components/ProtectedRoute";
 import Navigation from "./components/Navigation";
 
 const App = () => {
@@ -36,14 +35,28 @@ const App = () => {
         <section className={"app"}>
           <Toggle />
           <Switch>
+            {/* 2. Add proper routes and protectedRoutes */}
+            <Route path="/profile/:id" component={Profile}></Route>
+            <Route path="/library" component={Library}></Route>
+            <Route path="/account" component={Account}></Route>
             <Route path="/register" component={Register}></Route>
             <Route path="/login" component={Login}></Route>
             <Route path="/logout" component={Logout}></Route>
-
-            <ProtectedRoute path="/library" component={Library} />
-            <ProtectedRoute path="/profile/:id" component={Profile} />
-            <ProtectedRoute path="/account" component={Account} />
-            <ProtectedRoute exact path="/" component={Likes} />
+            {/* 1. Move this logic to ProtectedRoute  */}
+            <Route
+              path="/"
+              render={(props) =>
+                user ? (
+                  <Likes {...props} />
+                ) : (
+                  <Redirect
+                    to={{
+                      pathname: "/login",
+                    }}
+                  />
+                )
+              }
+            ></Route>
           </Switch>
         </section>
       </BrowserRouter>
