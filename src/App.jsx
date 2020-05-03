@@ -30,8 +30,7 @@ const App = () => {
   if (user === null) return <Loader />;
 
   return (
-    // 1. Pass setUser to Context
-    <AppContext.Provider value={{ user }}>
+    <AppContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <Navigation />
         <section className={"app"}>
@@ -45,7 +44,6 @@ const App = () => {
             <ProtectedRoute path="/profile/:id" component={Profile} />
             <ProtectedRoute path="/account" component={Account} />
             <ProtectedRoute exact path="/" component={Likes} />
-            <ProtectedRoute path="*">404</ProtectedRoute>
           </Switch>
         </section>
       </BrowserRouter>
