@@ -5,7 +5,6 @@ import Tags from "../components/Tags";
 import Card from "../components/Card";
 import { fetchProfile } from "../utils/request";
 import Loader from "../components/Loader";
-import GoBack from "../components/GoBack";
 
 const Profile = (props) => {
   const [profile, setProfile] = useState(null);
@@ -24,7 +23,7 @@ const Profile = (props) => {
   return (
     <>
       <div className={styles.profile}>
-        <GoBack />
+        {/* 1. Add GoBack here */}
         <div className={styles.hero}>
           <Card imgUrl={profile.profile_image}></Card>
         </div>
