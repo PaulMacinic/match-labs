@@ -26,6 +26,8 @@ const CandidateForm = ({ fields, onSubmit }) => {
   };
 
   const onSelectChange = (selected) => {
+    if (!selected) return;
+
     const newValues = [...values];
     const index = newValues.findIndex((value) => value.name === "technologies");
     newValues[index] = {
