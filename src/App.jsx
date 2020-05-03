@@ -28,6 +28,7 @@ const App = () => {
   if (user === null) return <Loader />;
 
   return (
+    // 1. Pass setUser to Context
     <AppContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <Toggle />
