@@ -22,7 +22,6 @@ const Register = () => {
 
   const assignUserRole = async (email, values) => {
     const account = await assignRole({ email, ...values });
-    console.log(account);
   };
 
   if (isLoading) return <Loader />;

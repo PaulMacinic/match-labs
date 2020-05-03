@@ -19,7 +19,8 @@ const Account = () => {
   }, [user]);
 
   const onFormSubmit = async (values) => {
-    await editAccount(user.id, { [user.role]: values });
+    const { technologies, ...rest } = values;
+    await editAccount(user.id, { [user.role]: rest, technologies });
   };
 
   if (!fields) return <Loader />;

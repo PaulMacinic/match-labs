@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./Likes.module.css";
 
-import { labs, technologies } from "../mocks";
 import Card from "../components/Card";
 import { fetchLikes } from "../utils/request";
 import { useState } from "react";
@@ -34,7 +33,7 @@ const Likes = (props) => {
             outline={user.role === "candidate"}
             name={like.name}
             imgUrl={like.profile_image}
-            technologies={technologies}
+            technologies={like.technologies}
           ></Card>
         </div>
       ))}

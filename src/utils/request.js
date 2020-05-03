@@ -15,6 +15,13 @@ const format = (data) => {
       };
 };
 
+const formatTechnologies = (data) => {
+  return data.map((t) => ({
+    value: t.id,
+    label: t.name,
+  }));
+};
+
 const formatMe = (data) =>
   data.matcher_type === "Candidate"
     ? {
@@ -27,6 +34,7 @@ const formatMe = (data) =>
           description: data.matcher.description,
           phone: data.matcher.phone,
           profile_image: data.matcher.profile_image,
+          technologies: formatTechnologies(data.matcher.technologies),
         },
       }
     : {
@@ -79,6 +87,18 @@ const config = {
       Accept: "application/json",
     };
   },
+};
+
+export const fetchTechnologies = async () => {
+  const res = await fetch(`${baseUrl}/technologies`, {
+    method: "GET",
+  });
+
+  const json = await res.json();
+  return json.map((t) => ({
+    value: t.id,
+    label: t.name,
+  }));
 };
 
 export const fetchMatches = async () => {

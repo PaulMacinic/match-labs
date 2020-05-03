@@ -12,6 +12,8 @@ const Toggle = () => {
 
   if (!user) return "";
 
+  const isList = (possibleList) => !!Array.isArray(possibleList);
+
   return (
     <div
       style={{
@@ -29,9 +31,14 @@ const Toggle = () => {
       <div>ID: {user.id}</div>
       <div>ROLE: {user.role}</div>
       <br />
-      {Object.values(user.personal).map((value) => (
-        <div key={value}>{value}</div>
-      ))}
+
+      {Object.keys(user.personal).map((key) => {
+        if (isList(user.personal[key])) {
+          return user.personal[key].join(", ");
+        } else {
+          return <div key={key}>{user.personal[key]}</div>;
+        }
+      })}
     </div>
   );
 };

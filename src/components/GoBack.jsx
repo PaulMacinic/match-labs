@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 
 const GoBack = () => {
   const history = useHistory();
-  console.log(history);
   return (
     <div className={styles.goBack}>
       <img
