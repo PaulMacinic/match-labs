@@ -213,3 +213,16 @@ export const me = async (data) => {
 
   return json.error ? false : formatMe(json);
 };
+
+export const editAccount = async (id, data) => {
+  const entity = role === "candidate" ? `candidates` : `companies`;
+
+  const res = await fetch(`${baseUrl}/${entity}/${id}`, {
+    method: "PUT",
+    headers: { ...config.headers, ...config.authorization },
+    body: JSON.stringify(data),
+  }).catch((e) => console.log(e));
+
+  const json = await res.json();
+  return json;
+};

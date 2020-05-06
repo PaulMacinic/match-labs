@@ -4,6 +4,7 @@ import CandidateForm from "../components/CandidateForm";
 import PageTitle from "../components/PageTitle";
 import { AppContext } from "../Context";
 import Loader from "../components/Loader";
+import { editAccount } from "../utils/request";
 
 const Account = () => {
   const { user } = useContext(AppContext);
@@ -17,8 +18,8 @@ const Account = () => {
     setFields(newFields);
   }, [user]);
 
-  const onFormSubmit = (values) => {
-    console.log(values);
+  const onFormSubmit = async (values) => {
+    await editAccount(user.id, { [user.role]: values });
   };
 
   if (!fields) return <Loader />;
