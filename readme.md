@@ -1,20 +1,9 @@
-# Week4 exercise3
+# Week5 exercise I
 
-### PART I
+As we are reaching the middle of our course, we want to make sure our app is up to date and all the pages are taking in dynamic data.
 
-The form on the Account page is at the moment taking in static data from mocks.js.
+Please connect the /likes, /library, and /profile page to the API.
 
-We would like pass dynamic data to it so that the form can build itself based on the type of account that is currenlty logged in.
-The data should come from the user object stored in the Context.
+You will have to create 2 new request.js functions, fetchAllLikes, which makes a request to labs or candidates depending on the role. And you will have to change the fetchProfile, and fetchMatches methods in order to fetch based on roles.
 
-### PART II
-
-At the moment, on submit, the `Account` form just logs the values.
-
-Create a new request function that sends the data to the `edit candidate endpoint`.
-The endpoint for the editCandidate is:
-`https://match-labs-api.herokuapp.com/api/candidates/:id`
-
-Make sure the method you are using is `PUT`.
-
-When clicking on `Submit`, the Account form should send the data to the API and edit the current user.
+Furthermore, make sure that on the Library page, you toggle data between `all` and `matches` when clicking on the filter.

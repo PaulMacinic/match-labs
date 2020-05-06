@@ -26,6 +26,7 @@ const Library = (props) => {
     const matches = await fetchMatches();
     setMatches(matches);
     const likes = fetchLikes();
+    console.log(likes);
     setLikes([likes]);
     setData([likes]);
   };
