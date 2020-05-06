@@ -41,21 +41,6 @@ const formatMe = (data) =>
         },
       };
 
-const formatMatch = (data) => {
-  return role === "candidate"
-    ? {
-        id: data.id,
-        name: data.lab.name,
-        profile_image: "data.lab.company.profile_image",
-      }
-    : {
-        id: data.id,
-        name: `${data.candidate.first_name} ${data.candidate.last_name}`,
-        profile_image: data.candidate.profile_image,
-        technologies: data.candidate.technologies,
-      };
-};
-
 const config = {
   setAuthToken: (res) => {
     const token = res.headers.entries().next().value[1];
