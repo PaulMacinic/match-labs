@@ -1,4 +1,4 @@
-const baseUrl = "https://match-labs-api.herokuapp.com/api/no_auth";
+const baseUrl = "https://match-labs-api.herokuapp.com/api";
 
 const role = localStorage.getItem("role");
 
