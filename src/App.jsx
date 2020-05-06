@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     // 1. Pass setUser to Context
-    <AppContext.Provider value={{ user, setUser }}>
+    <AppContext.Provider value={{ user }}>
       <BrowserRouter>
         <Toggle />
         <Switch>
