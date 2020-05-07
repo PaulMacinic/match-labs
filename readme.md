@@ -1,20 +1,19 @@
-# Week4 exercise3
+# Week5 exercise I
 
-### PART I
+On our /Account page we would like to have a Select input, that allows us to choose multiple technologies that are of interest for a candidate.
 
-The form on the Account page is at the moment taking in static data from mocks.js.
+The select input should be pre-populated with technologies from a server endpoint that contains all the technologies created by the companies in the MatchLabs app. At the moment the endpoint is:
+https://match-labs-api.herokuapp.com/api/technologies
 
-We would like pass dynamic data to it so that the form can build itself based on the type of account that is currenlty logged in.
-The data should come from the user object stored in the Context.
+When a candidate selects the technology options he wants and clicks "Submit", we should call the /editCandidate endpoint.
+This endpoint should update the user with the selected technlogies and the rest of the information in the form.
 
-### PART II
+In order not to reinvent the wheel, we will use a NPM package for our select that is called react-select.
+Instructions regarding the usage can be found here:
+https://react-select.com
 
-At the moment, on submit, the `Account` form just logs the values.
+In order to install this package in our project please navigate in your terminal to the root folder and run:
 
-Create a new request function that sends the data to the `edit candidate endpoint`.
-The endpoint for the editCandidate is:
-`https://match-labs-api.herokuapp.com/api/candidates/:id`
+- npm i react-select
 
-Make sure the method you are using is `PUT`.
-
-When clicking on `Submit`, the Account form should send the data to the API and edit the current user.
+That should install it and add it to the package.json file located in your root folder.
