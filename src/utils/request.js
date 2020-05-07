@@ -15,13 +15,6 @@ const format = (data) => {
       };
 };
 
-const formatTechnologies = (data) => {
-  return data.map((t) => ({
-    value: t.id,
-    label: t.name,
-  }));
-};
-
 const formatMe = (data) =>
   data.matcher_type === "Candidate"
     ? {
@@ -34,7 +27,6 @@ const formatMe = (data) =>
           description: data.matcher.description,
           phone: data.matcher.phone,
           profile_image: data.matcher.profile_image,
-          // 1. technologies: formatTechnologies(data.matcher.technologies),
         },
       }
     : {
@@ -87,11 +79,6 @@ const config = {
       Accept: "application/json",
     };
   },
-};
-
-export const fetchTechnologies = async () => {
-  // 2. Make GET request to /technologies
-  // format data {value, label}
 };
 
 export const fetchMatches = async () => {
