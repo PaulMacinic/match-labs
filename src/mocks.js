@@ -81,5 +81,4 @@ export const CREATE_COMPANY_FIELDS = [
   { value: "", name: "phone", placeholder: "Phone" },
   { value: "", name: "profile_image", placeholder: "Profile image url" },
   { value: "", name: "password", placeholder: "Password" },
-  { value: "", name: "technologies", placeholder: "" },
 ];

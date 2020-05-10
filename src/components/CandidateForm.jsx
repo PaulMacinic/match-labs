@@ -49,13 +49,36 @@ const CandidateForm = ({ fields, onSubmit }) => {
 
   if (!values) return <Loader></Loader>;
 
+  const _renderSelect = () => {
+    return (
+      <Select
+        name={"technologies"}
+        onChange={onSelectChange}
+        isMulti
+        options={technologies}
+        placeholder={"Technologies"}
+        styles={{
+          control: () => ({
+            padding: "0.6rem 0 0.7rem 0.5rem",
+            display: "flex",
+            borderRadius: ".3rem",
+            border: "0.1rem solid #ebebeb",
+            fontSize: "1.1rem",
+            marginBottom: "1.6rem",
+          }),
+        }}
+      />
+    );
+  };
+
   return (
     <>
       <form onSubmit={(e) => formHandler(e)} className={styles.form}>
-        {values.map(
-          (field) =>
-            field.name !== "technologies" && (
-              <div key={field.name} className={styles.field}>
+        {values.map((field) => (
+          <React.Fragment key={field.name}>
+            {field.name === "technologies" && _renderSelect()}
+            {field.name !== "technologies" && (
+              <div className={styles.field}>
                 <input
                   required
                   onChange={onChange}
@@ -64,25 +87,9 @@ const CandidateForm = ({ fields, onSubmit }) => {
                   name={field.name}
                 ></input>
               </div>
-            )
-        )}
-        <Select
-          name={"technologies"}
-          onChange={onSelectChange}
-          isMulti
-          options={technologies}
-          placeholder={"Technologies"}
-          styles={{
-            control: () => ({
-              padding: "0.6rem 0 0.7rem 0.5rem",
-              display: "flex",
-              borderRadius: ".3rem",
-              border: "0.1rem solid #ebebeb",
-              fontSize: "1.1rem",
-              marginBottom: "1.6rem",
-            }),
-          }}
-        />
+            )}
+          </React.Fragment>
+        ))}
 
         <Button type={"submit"} variant={"secondary"} size={"medium"}>
           Submit
