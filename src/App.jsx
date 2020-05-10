@@ -14,6 +14,7 @@ import Loader from "./components/Loader";
 import Logout from "./screens/Logout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navigation from "./components/Navigation";
+import Swiper from "./components/Swiper";
 
 const App = () => {
   const [user, setUser] = useState(null);

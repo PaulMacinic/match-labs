@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
 import styles from "./Likes.module.css";
 
-import Card from "../components/Card";
 import { fetchLikes } from "../utils/request";
 import { useState } from "react";
 import Loader from "../components/Loader";
-import { useContext } from "react";
-import { AppContext } from "../Context";
+import Swiper from "../components/Swiper";
 
-const Likes = (props) => {
+const Likes = () => {
   const [likes, setLikes] = useState(null);
-  const { user } = useContext(AppContext);
 
   useEffect(() => {
     const onMount = async () => {
@@ -20,23 +17,17 @@ const Likes = (props) => {
     onMount();
   }, []);
 
+  const removeLike = () => {
+    const newLikes = [...likes];
+    newLikes.pop();
+    setLikes(newLikes);
+  };
+
   if (!likes) return <Loader></Loader>;
 
   return (
     <div className={styles.content}>
-      {likes.map((like) => (
-        <div
-          key={like.id}
-          onClick={() => props.history.push(`/profile/${like.id}`)}
-        >
-          <Card
-            outline={user.role === "candidate"}
-            name={like.name}
-            imgUrl={like.profile_image}
-            technologies={like.technologies}
-          ></Card>
-        </div>
-      ))}
+      <Swiper items={likes} callback={removeLike}></Swiper>
     </div>
   );
 };
