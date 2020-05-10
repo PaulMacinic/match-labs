@@ -18,12 +18,12 @@
   transition: transform 0.3s, opacity 0.5s;
 }
 
-.accepted.exit {
+.right.exit {
   transform: translateX(15rem) rotate(7deg);
   opacity: 0;
 }
 
-.rejected.exit {
+.left.exit {
   transform: translateX(-15rem) rotate(-7deg);
   opacity: 0;
 }
