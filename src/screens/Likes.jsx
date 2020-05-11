@@ -28,7 +28,7 @@ const Likes = () => {
 
   return (
     <div className={styles.content}>
-      <Swiper items={likes} callback={removeLike} onMatch={onMatch}></Swiper>
+      <Swiper items={likes} callback={removeLike}></Swiper>
     </div>
   );
 };
