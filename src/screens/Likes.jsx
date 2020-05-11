@@ -24,12 +24,6 @@ const Likes = () => {
     setLikes(newLikes);
   };
 
-  const onMatch = () => {
-    const match = { ...likes[likes.length - 1] };
-    setMatch(match);
-    removeLike();
-  };
-
   if (!likes) return <Loader></Loader>;
 
   return (
