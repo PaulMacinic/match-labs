@@ -8,6 +8,7 @@ import Swiper from "../components/Swiper";
 
 const Likes = () => {
   const [likes, setLikes] = useState(null);
+  const [match, setMatch] = useState(null);
 
   useEffect(() => {
     const onMount = async () => {
@@ -23,11 +24,17 @@ const Likes = () => {
     setLikes(newLikes);
   };
 
+  const onMatch = () => {
+    const match = { ...likes[likes.length - 1] };
+    setMatch(match);
+    removeLike();
+  };
+
   if (!likes) return <Loader></Loader>;
 
   return (
     <div className={styles.content}>
-      <Swiper items={likes} callback={removeLike}></Swiper>
+      <Swiper items={likes} callback={removeLike} onMatch={onMatch}></Swiper>
     </div>
   );
 };
