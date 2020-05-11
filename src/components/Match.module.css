@@ -1,0 +1,58 @@
+.match {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  padding-top: 7rem;
+  background: #000000f0;
+  opacity: 0;
+  animation: opacity 0.5s forwards;
+}
+
+.cards {
+  width: 27rem;
+  height: 41rem;
+  margin-bottom: 6rem;
+}
+
+.header {
+  color: #fff;
+  margin: 2rem 0 13rem;
+}
+
+.left,
+.right {
+  position: absolute;
+  transform: translateX(0) rotate(0);
+  opacity: 0;
+}
+
+.left {
+  animation: rotateAndMoveRight 0.5s forwards, opacity 0.5s forwards;
+}
+
+.right {
+  animation: rotateAndMoveLeft 0.5s forwards, opacity 0.5s forwards;
+}
+
+@keyframes rotateAndMoveRight {
+  100% {
+    transform: translateX(-12rem) rotate(-8deg);
+  }
+}
+
+@keyframes rotateAndMoveLeft {
+  100% {
+    transform: translateX(12rem) rotate(8deg);
+  }
+}
+
+@keyframes opacity {
+  100% {
+    opacity: 1;
+  }
+}
