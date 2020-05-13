@@ -9,7 +9,7 @@ import Button from "../components/Button";
 
 const Register = () => {
   const [isLoading, setIsLoading] = useState(null);
-  // 3. set local state variable role
+  // 2. set local state variable role
   // const [role, setRole] = useState(null);
 
   const onFormSubmit = async (values) => {
@@ -26,10 +26,11 @@ const Register = () => {
   };
 
   const assignUserRole = async (email, values) => {
-    // 2. send technologies and role to endpoint
+    // 5. send technologies and role to endpoint
     const account = await assignRole({ email, ...values });
   };
 
+  // 3. render role selector
   // const _renderRoleSelector = () => {
   //   return (
   //     <section className={styles.roles}>
