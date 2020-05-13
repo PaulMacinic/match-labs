@@ -6,7 +6,6 @@ import { AppContext } from "../Context";
 import Loader from "./Loader";
 import { CSSTransition } from "react-transition-group";
 import { useState } from "react";
-import { like, dislike } from "../utils/request";
 
 const Swiper = ({ items, callback }) => {
   const { user } = useContext(AppContext);
@@ -16,8 +15,6 @@ const Swiper = ({ items, callback }) => {
   const current = items[items.length - 1];
 
   const onButtonClick = async (direction) => {
-    // call like or dislike with current.id
-
     setValues({ swiped: false, direction });
   };
 

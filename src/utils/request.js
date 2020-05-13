@@ -228,5 +228,3 @@ export const editAccount = async (id, data) => {
   const json = await res.json();
   return json;
 };
-
-// make endpoints for like and dislike
