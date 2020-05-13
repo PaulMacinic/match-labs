@@ -9,17 +9,18 @@ import { useState } from "react";
 
 const Swiper = ({ items, callback }) => {
   const { user } = useContext(AppContext);
-  const [values, setValues] = useState({ swiped: true, direction: "" });
+  // 2. create values for swiped and direction
 
   const next = items[items.length - 2];
   const current = items[items.length - 1];
 
   const onButtonClick = async (direction) => {
-    setValues({ swiped: false, direction });
+    // 3. setValues swiped and direction
+    callback();
   };
 
   const reset = () => {
-    setValues({ swiped: true, direction: "" });
+    // 5. reset setValues swiped:true direction:""
   };
 
   const _renderButtons = () => {
@@ -54,30 +55,19 @@ const Swiper = ({ items, callback }) => {
           </Link>
         )}
 
-        <CSSTransition
-          key={current.id}
-          in={values.swiped}
-          timeout={300}
-          classNames={{ exit: styles.exit, exitDone: styles.exit }}
-          onExited={() => {
-            reset();
-            callback();
-          }}
+        {/* 1. add <CSSTransition></CSSTransition> */}
+        <Link
+          to={`/profile/${current.id}`}
+          className={`${styles.cardContainer}`}
+          // 4. add direction className or ""
         >
-          <Link
-            to={`/profile/${current.id}`}
-            className={`${styles.cardContainer} ${
-              styles[values.direction] || ""
-            } `}
-          >
-            <Card
-              outline={user.role === "candidate"}
-              name={current.name}
-              imgUrl={current.profile_image}
-              technologies={current.technologies}
-            ></Card>
-          </Link>
-        </CSSTransition>
+          <Card
+            outline={user.role === "candidate"}
+            name={current.name}
+            imgUrl={current.profile_image}
+            technologies={current.technologies}
+          ></Card>
+        </Link>
       </div>
 
       {_renderButtons()}
