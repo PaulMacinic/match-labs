@@ -8,7 +8,6 @@ import Swiper from "../components/Swiper";
 
 const Likes = () => {
   const [likes, setLikes] = useState(null);
-  const [match, setMatch] = useState(null);
 
   useEffect(() => {
     const onMount = async () => {

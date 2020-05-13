@@ -16,12 +16,7 @@ const Swiper = ({ items, callback }) => {
   const current = items[items.length - 1];
 
   const onButtonClick = async (direction) => {
-    const liked =
-      direction === "right"
-        ? await like(current.id)
-        : await dislike(current.id);
-
-    console.log(liked);
+    // call like or dislike with current.id
 
     setValues({ swiped: false, direction });
   };

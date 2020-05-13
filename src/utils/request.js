@@ -229,28 +229,4 @@ export const editAccount = async (id, data) => {
   return json;
 };
 
-export const like = async (id) => {
-  const entity = role === "candidate" ? `labs` : `candidates`;
-
-  const res = await fetch(`${baseUrl}/${entity}/${id}/like`, {
-    method: "POST",
-    headers: { ...config.headers, ...config.authorization },
-  });
-
-  const json = await res.json();
-
-  return json;
-};
-
-export const dislike = async (id) => {
-  const entity = role === "candidate" ? `labs` : `candidates`;
-
-  const res = await fetch(`${baseUrl}/${entity}/${id}/like`, {
-    method: "DELETE",
-    headers: { ...config.headers, ...config.authorization },
-  });
-
-  const json = await res.json();
-
-  return json;
-};
+// make endpoints for like and dislike
