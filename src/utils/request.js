@@ -131,7 +131,6 @@ export const fetchLikes = async () => {
   });
 
   const json = await res.json();
-
   return json.map((item) => format(item));
 };
 

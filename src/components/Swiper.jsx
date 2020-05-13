@@ -5,62 +5,40 @@ import Card from "./Card";
 import { AppContext } from "../Context";
 import Loader from "./Loader";
 
-const Swiper = ({ items, callback }) => {
-  const { user } = useContext(AppContext);
+const Swiper = ({ items }) => {
+  // 6. bring user for outline
 
-  const next = items[items.length - 2];
-  const current = items[items.length - 1];
+  //1. define current card
 
   const onButtonClick = async () => {
-    callback();
+    // 4. execute callback that removes like
   };
 
   const _renderButtons = () => {
-    return (
-      <div className={styles.buttons}>
-        <div className={styles.button} onClick={() => onButtonClick()}>
-          <img src={require("../static/svg/close.svg")} alt={"close"} />
-        </div>
-        <div className={styles.button} onClick={() => onButtonClick()}>
-          <img src={require("../static/svg/heart.svg")} alt={"heart"} />
-        </div>
-      </div>
-    );
+    // 3. onCLick buttons call function
+    // return (
+    //   <div className={styles.buttons}>
+    //     <div className={styles.button}>
+    //       <img src={require("../static/svg/close.svg")} alt={"close"} />
+    //     </div>
+    //     <div className={styles.button}>
+    //       <img src={require("../static/svg/heart.svg")} alt={"heart"} />
+    //     </div>
+    //   </div>
+    // );
   };
 
-  if (!items.length) return <Loader></Loader>;
+  // if (!items) return <Loader></Loader>;
 
   return (
     <section className={styles.swiper}>
       <div className={styles.content}>
-        {items.length > 1 && (
-          <Link
-            to={`/profile/${next.id}`}
-            className={`${styles.cardContainer}`}
-          >
-            <Card
-              outline={user.role === "candidate"}
-              name={next.name}
-              imgUrl={next.profile_image}
-              technologies={next.technologies}
-            ></Card>
-          </Link>
-        )}
+        {/* 5. render next card */}
 
-        <Link
-          to={`/profile/${current.id}`}
-          className={`${styles.cardContainer} `}
-        >
-          <Card
-            outline={user.role === "candidate"}
-            name={current.name}
-            imgUrl={current.profile_image}
-            technologies={current.technologies}
-          ></Card>
-        </Link>
+        {/* 2. render current card   */}
       </div>
 
-      {_renderButtons()}
+      {/* {_renderButtons()} */}
     </section>
   );
 };

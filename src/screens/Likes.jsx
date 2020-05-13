@@ -18,16 +18,14 @@ const Likes = () => {
   }, []);
 
   const removeLike = () => {
-    const newLikes = [...likes];
-    newLikes.pop();
-    setLikes(newLikes);
+    // 2. remove item from likes array
   };
 
   if (!likes) return <Loader></Loader>;
 
   return (
     <div className={styles.content}>
-      <Swiper items={likes} callback={removeLike}></Swiper>
+      {/* 1. Add Swiper component and provide items */}
     </div>
   );
 };
