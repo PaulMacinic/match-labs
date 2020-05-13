@@ -5,9 +5,7 @@ import Button from "./Button";
 import styles from "./Match.module.css";
 import { AppContext } from "../Context";
 
-const Match = ({ match, onContinueSwiping }) => {
-  // Bring user context
-
+const Match = () => {
   return (
     <div className={styles.match}>
       <div className={styles.header}>
@@ -18,7 +16,7 @@ const Match = ({ match, onContinueSwiping }) => {
 
         <div className={styles.right}>{/* Render company card */}</div>
       </div>
-      {/*  add onContinueSwiping action */}
+
       <Button variant={"secondary"} size={"small"}>
         Keep on swiping
       </Button>

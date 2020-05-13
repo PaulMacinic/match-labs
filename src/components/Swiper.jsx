@@ -21,7 +21,6 @@ const Swiper = ({ items, callback }) => {
         ? await like(current.id)
         : await dislike(current.id);
 
-    // 1. if there is a match call onMatch else setValues
     setValues({ swiped: false, direction });
   };
 
