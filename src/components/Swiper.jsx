@@ -28,19 +28,24 @@ const Swiper = ({ items, callback }) => {
     );
   };
 
-  if (!items) return <Loader></Loader>;
+  if (!items.length) return <Loader></Loader>;
 
   return (
     <section className={styles.swiper}>
       <div className={styles.content}>
-        <Link to={`/profile/${next.id}`} className={`${styles.cardContainer}`}>
-          <Card
-            outline={user.role === "candidate"}
-            name={next.name}
-            imgUrl={next.profile_image}
-            technologies={next.technologies}
-          ></Card>
-        </Link>
+        {items.length > 1 && (
+          <Link
+            to={`/profile/${next.id}`}
+            className={`${styles.cardContainer}`}
+          >
+            <Card
+              outline={user.role === "candidate"}
+              name={next.name}
+              imgUrl={next.profile_image}
+              technologies={next.technologies}
+            ></Card>
+          </Link>
+        )}
 
         <Link
           to={`/profile/${current.id}`}
