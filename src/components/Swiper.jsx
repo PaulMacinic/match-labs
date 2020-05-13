@@ -8,7 +8,7 @@ import { CSSTransition } from "react-transition-group";
 import { useState } from "react";
 import { like, dislike } from "../utils/request";
 
-const Swiper = ({ items, callback, onMatch }) => {
+const Swiper = ({ items, callback }) => {
   const { user } = useContext(AppContext);
   const [values, setValues] = useState({ swiped: true, direction: "" });
 
@@ -21,8 +21,8 @@ const Swiper = ({ items, callback, onMatch }) => {
         ? await like(current.id)
         : await dislike(current.id);
 
-    if (liked.match) onMatch();
-    else setValues({ swiped: false, direction });
+    // 1. if there is a match call onMatch else setValues
+    setValues({ swiped: false, direction });
   };
 
   const reset = () => {

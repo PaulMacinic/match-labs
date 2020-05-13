@@ -6,7 +6,7 @@ import styles from "./Match.module.css";
 import { AppContext } from "../Context";
 
 const Match = ({ match, onContinueSwiping }) => {
-  const { user } = useContext(AppContext);
+  // Bring user context
 
   return (
     <div className={styles.match}>
@@ -14,22 +14,12 @@ const Match = ({ match, onContinueSwiping }) => {
         <h1>It's a match</h1>
       </div>
       <div className={styles.cards}>
-        <div className={styles.left}>
-          <Card
-            imgUrl={user.personal.profile_image}
-            name={user.personal.first_name}
-          ></Card>
-        </div>
+        <div className={styles.left}>{/* Render user card */}</div>
 
-        <div className={styles.right}>
-          <Card
-            outline
-            imgUrl={match.company.profile_image}
-            name={match.name}
-          ></Card>
-        </div>
+        <div className={styles.right}>{/* Render company card */}</div>
       </div>
-      <Button variant={"secondary"} size={"small"} action={onContinueSwiping}>
+      {/*  add onContinueSwiping action */}
+      <Button variant={"secondary"} size={"small"}>
         Keep on swiping
       </Button>
     </div>

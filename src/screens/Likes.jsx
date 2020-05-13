@@ -9,7 +9,7 @@ import Match from "../components/Match";
 
 const Likes = () => {
   const [likes, setLikes] = useState(null);
-  const [match, setMatch] = useState(false);
+  // set match state variable
 
   useEffect(() => {
     const onMount = async () => {
@@ -26,23 +26,19 @@ const Likes = () => {
   };
 
   const onMatch = () => {
-    const match = { ...likes[likes.length - 1] };
-    setMatch(match);
-    removeLike();
+    // match is likes.length - 1
+    // setMatch and removeLike
   };
 
-  const onContinueSwiping = () => {
-    setMatch(null);
-  };
+  const onContinueSwiping = () => {};
 
   if (!likes) return <Loader></Loader>;
 
   return (
     <div className={styles.content}>
       <Swiper items={likes} callback={removeLike} onMatch={onMatch}></Swiper>
-      {match && (
-        <Match match={match} onContinueSwiping={onContinueSwiping}></Match>
-      )}
+      {/* if match render <Match/> */}
+      {/* add match and onContinueSwiping */}
     </div>
   );
 };
