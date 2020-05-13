@@ -9,74 +9,68 @@ import Button from "../components/Button";
 
 const Register = () => {
   const [isLoading, setIsLoading] = useState(null);
-  const [role, setRole] = useState(null);
+  // 3. set local state variable role
+  // const [role, setRole] = useState(null);
 
   const onFormSubmit = async (values) => {
+    // 4. Destructure technologies and send to assignUserRole
     setIsLoading(true);
-    const { email, password, technologies, ...rest } = values;
+    const { email, password, ...rest } = values;
     const user = await register({
       email,
       password,
     });
 
-    if (user.id) assignUserRole(email, technologies, rest);
+    if (user.id) assignUserRole(email, rest);
     setIsLoading(false);
   };
 
-  const assignUserRole = async (email, technologies, values) => {
-    const account = await assignRole(role, {
-      [role]: { email, ...values },
-      technologies,
-    });
+  const assignUserRole = async (email, values) => {
+    // 2. send technologies and role to endpoint
+    const account = await assignRole({ email, ...values });
   };
 
-  const _renderRoleSelector = () => {
-    return (
-      <section className={styles.roles}>
-        <p className={styles.intro}>Are you a candidate or a company?</p>
+  // const _renderRoleSelector = () => {
+  //   return (
+  //     <section className={styles.roles}>
+  //       <p className={styles.intro}>Are you a candidate or a company?</p>
 
-        <div className={styles.button}>
-          <Button
-            variant={"secondary"}
-            size={"huge"}
-            action={() => setRole("company")}
-          >
-            Company
-          </Button>
-        </div>
+  //       <div className={styles.button}>
+  //         <Button
+  //           variant={"secondary"}
+  //           size={"huge"}
+  //           action={() => setRole("company")}
+  //         >
+  //           Company
+  //         </Button>
+  //       </div>
 
-        <div className={styles.button}>
-          <Button
-            variant={"secondary"}
-            size={"huge"}
-            action={() => setRole("candidate")}
-          >
-            Candidate
-          </Button>
-        </div>
-      </section>
-    );
-  };
+  //       <div className={styles.button}>
+  //         <Button
+  //           variant={"secondary"}
+  //           size={"huge"}
+  //           action={() => setRole("candidate")}
+  //         >
+  //           Candidate
+  //         </Button>
+  //       </div>
+  //     </section>
+  //   );
+  // };
 
   if (isLoading) return <Loader />;
 
   return (
     <>
+      {/* 1. Render Form or _renderRoleSelector based on role */}
       <PageTitle>
         <h3>Register</h3>
       </PageTitle>
-      {role ? (
-        <CandidateForm
-          onSubmit={onFormSubmit}
-          fields={
-            role === "candidate"
-              ? CREATE_CANDIDATE_FIELDS
-              : CREATE_COMPANY_FIELDS
-          }
-        ></CandidateForm>
-      ) : (
-        _renderRoleSelector()
-      )}
+
+      <CandidateForm
+        onSubmit={onFormSubmit}
+        fields={CREATE_CANDIDATE_FIELDS}
+      ></CandidateForm>
     </>
   );
 };

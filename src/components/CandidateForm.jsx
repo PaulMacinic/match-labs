@@ -50,25 +50,7 @@ const CandidateForm = ({ fields, onSubmit }) => {
   if (!values) return <Loader></Loader>;
 
   const _renderSelect = () => {
-    return (
-      <Select
-        name={"technologies"}
-        onChange={onSelectChange}
-        isMulti
-        options={technologies}
-        placeholder={"Technologies"}
-        styles={{
-          control: () => ({
-            padding: "0.6rem 0 0.7rem 0.5rem",
-            display: "flex",
-            borderRadius: ".3rem",
-            border: "0.1rem solid #ebebeb",
-            fontSize: "1.1rem",
-            marginBottom: "1.6rem",
-          }),
-        }}
-      />
-    );
+    // 1 move function here
   };
 
   return (
@@ -76,7 +58,7 @@ const CandidateForm = ({ fields, onSubmit }) => {
       <form onSubmit={(e) => formHandler(e)} className={styles.form}>
         {values.map((field) => (
           <React.Fragment key={field.name}>
-            {field.name === "technologies" && _renderSelect()}
+            {/* 1. if technologies render select */}
             {field.name !== "technologies" && (
               <div className={styles.field}>
                 <input
@@ -90,6 +72,23 @@ const CandidateForm = ({ fields, onSubmit }) => {
             )}
           </React.Fragment>
         ))}
+        <Select
+          name={"technologies"}
+          onChange={onSelectChange}
+          isMulti
+          options={technologies}
+          placeholder={"Technologies"}
+          styles={{
+            control: () => ({
+              padding: "0.6rem 0 0.7rem 0.5rem",
+              display: "flex",
+              borderRadius: ".3rem",
+              border: "0.1rem solid #ebebeb",
+              fontSize: "1.1rem",
+              marginBottom: "1.6rem",
+            }),
+          }}
+        />
 
         <Button type={"submit"} variant={"secondary"} size={"medium"}>
           Submit
