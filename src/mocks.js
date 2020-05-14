@@ -60,6 +60,7 @@ export const EDIT_CANDIDATE_FIELDS = [
     name: "profile_image",
     value: "https://obscurial.dk/match-labs/paul.jpg",
   },
+  { name: "technologies", value: "" },
 ];
 
 export const CREATE_CANDIDATE_FIELDS = [
@@ -70,4 +71,5 @@ export const CREATE_CANDIDATE_FIELDS = [
   { value: "", name: "phone", placeholder: "Phone" },
   { value: "", name: "profile_image", placeholder: "Profile image url" },
   { value: "", name: "password", placeholder: "Password" },
+  { value: "", name: "technologies", placeholder: "Technologies" },
 ];
