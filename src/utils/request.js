@@ -205,3 +205,13 @@ export const editAccount = async (id, data) => {
   const json = await res.json();
   return json;
 };
+
+export const fetchTechnologies = async () => {
+  const res = await fetch(`${baseUrl}/technologies`, {
+    method: "GET",
+    headers: { ...config.headers, ...config.authorization },
+  });
+
+  const json = await res.json();
+  return json.map((item) => ({ value: item.id, label: item.name }));
+};
