@@ -24,7 +24,7 @@ const Register = () => {
   };
 
   const assignUserRole = async (email, technologies, values) => {
-    const account = await assignRole(role, {
+    await assignRole(role, {
       [role]: { email, ...values },
       technologies,
     });

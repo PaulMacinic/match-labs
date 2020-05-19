@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
 import styles from "./Library.module.css";
-import PageTitle from "../components/PageTitle";
-
 import { fetchMatches, fetchAllLikes } from "../utils/request";
 import Loader from "../components/Loader";
 import Card from "../components/Card";

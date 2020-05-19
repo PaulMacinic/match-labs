@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 
 import styles from "./CandidateForm.module.css";
 import Button from "./Button";

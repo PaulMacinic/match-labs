@@ -14,10 +14,10 @@ import Loader from "./components/Loader";
 import Logout from "./screens/Logout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navigation from "./components/Navigation";
-import Swiper from "./components/Swiper";
 
 const App = () => {
   const [user, setUser] = useState(null);
+  const [likes, setLikes] = useState(null);
 
   useEffect(() => {
     const onMount = async () => {
@@ -31,7 +31,7 @@ const App = () => {
   if (user === null) return <Loader />;
 
   return (
-    <AppContext.Provider value={{ user, setUser }}>
+    <AppContext.Provider value={{ user, setUser, likes, setLikes }}>
       <BrowserRouter>
         <Navigation />
         <section className={"app"}>
