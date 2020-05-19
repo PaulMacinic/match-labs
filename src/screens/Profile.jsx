@@ -32,7 +32,7 @@ const Profile = (props) => {
   };
 
   const onMatch = () => {
-    const match = { ...likes[likes.length - 1] };
+    const match = { ...likes.find((like) => like.id === profile.id) };
     setMatch(match);
   };
 
