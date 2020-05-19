@@ -5,10 +5,12 @@ import Card from "../components/Card";
 import { fetchProfile, fetchLikes, like, dislike } from "../utils/request";
 import Loader from "../components/Loader";
 import GoBack from "../components/GoBack";
+import Match from "../components/Match";
 
 const Profile = (props) => {
   const [profile, setProfile] = useState(null);
   const [likes, setLikes] = useState(null);
+  const [match, setMatch] = useState(null);
 
   useEffect(() => {
     const onMount = async () => {
@@ -29,8 +31,22 @@ const Profile = (props) => {
     setLikes(newLikes);
   };
 
+  const onMatch = () => {
+    const match = { ...likes[likes.length - 1] };
+    setMatch(match);
+  };
+
+  const onContinueSwiping = () => {
+    setMatch(null);
+  };
+
   const onButtonClick = async (direction) => {
-    direction === "right" ? await like(profile.id) : await dislike(profile.id);
+    const liked =
+      direction === "right"
+        ? await like(profile.id)
+        : await dislike(profile.id);
+
+    if (liked.match) onMatch();
     removeLike();
   };
 
@@ -80,6 +96,9 @@ const Profile = (props) => {
             <p>{profile.description}</p>
           </section>
         </div>
+        {match && (
+          <Match match={match} onContinueSwiping={onContinueSwiping}></Match>
+        )}
       </div>
     </>
   );

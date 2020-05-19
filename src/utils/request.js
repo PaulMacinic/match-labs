@@ -144,6 +144,7 @@ export const fetchAllLikes = async () => {
   });
 
   const json = await res.json();
+
   return json.map((like) => format(like));
 };
 
