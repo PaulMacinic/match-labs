@@ -14,6 +14,7 @@ const Profile = (props) => {
     const onMount = async () => {
       const id = props.match.params.id;
       const profile = await fetchProfile(id);
+      // 1. fetchLikes and setLikes
       const likes = await fetchLikes();
 
       setLikes(likes);
@@ -23,15 +24,12 @@ const Profile = (props) => {
   }, [props.match.params.id]);
 
   const removeLike = () => {
-    const newLikes = [...likes];
-    const index = newLikes.findIndex((like) => like.id === profile.id);
-    newLikes.splice(index, 1);
-    setLikes(newLikes);
+    // 5. Find like index and splice it from state
   };
 
   const onButtonClick = async (direction) => {
-    direction === "right" ? await like(profile.id) : await dislike(profile.id);
-    removeLike();
+    // 4. removeLike from state
+    // 6. likeOrDislike
   };
 
   const _renderButtons = () => {
@@ -48,7 +46,7 @@ const Profile = (props) => {
   };
 
   const isLikeable = () => {
-    return likes.some((likes) => likes.id === profile.id);
+    // 3. likes.some
   };
 
   if (!profile) return <Loader />;
@@ -59,7 +57,7 @@ const Profile = (props) => {
         <GoBack />
         <div className={styles.hero}>
           <Card imgUrl={profile.profile_image}></Card>
-          {isLikeable() && _renderButtons()}
+          {/* 2. If likeable render buttons */}
         </div>
         <div className={styles.rightSide}>
           <h3 className={styles.name}>{profile.name}</h3>
