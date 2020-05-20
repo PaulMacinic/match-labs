@@ -14,6 +14,7 @@ import Loader from "./components/Loader";
 import Logout from "./screens/Logout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navigation from "./components/Navigation";
+import ManageLab from "./screens/ManageLab";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -44,6 +45,7 @@ const App = () => {
             <ProtectedRoute path="/library" component={Library} />
             <ProtectedRoute path="/profile/:id" component={Profile} />
             <ProtectedRoute path="/account" component={Account} />
+            <ProtectedRoute path="/lab" component={ManageLab} />
             <ProtectedRoute exact path="/" component={Likes} />
             <ProtectedRoute path="*">404</ProtectedRoute>
           </Switch>

@@ -255,3 +255,14 @@ export const dislike = async (id) => {
 
   return json;
 };
+
+export const createLab = async (data) => {
+  const res = await fetch(`${baseUrl}/labs`, {
+    method: "POST",
+    headers: { ...config.headers, ...config.authorization },
+    body: JSON.stringify(data),
+  });
+  const json = await res.json();
+
+  return json;
+};
