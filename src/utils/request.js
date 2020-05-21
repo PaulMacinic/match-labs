@@ -27,6 +27,7 @@ const formatMe = (data) =>
           description: data.matcher.description,
           phone: data.matcher.phone,
           profile_image: data.matcher.profile_image,
+          // technologies: formatTechnologies(data.matcher.technologies),
         },
       }
     : {
@@ -40,6 +41,13 @@ const formatMe = (data) =>
           profile_image: data.matcher.profile_image,
         },
       };
+
+const formatTechnologies = (data) => {
+  return data.map((t) => ({
+    value: t.id,
+    label: t.name,
+  }));
+};
 
 const formatMatch = (data) => {
   return role === "candidate"
@@ -204,4 +212,16 @@ export const editAccount = async (id, data) => {
 
   const json = await res.json();
   return json;
+};
+
+export const fetchTechnologies = async () => {
+  const res = await fetch(`${baseUrl}/technologies`, {
+    method: "GET",
+  });
+
+  const json = await res.json();
+  return json.map((t) => ({
+    value: t.id,
+    label: t.name,
+  }));
 };

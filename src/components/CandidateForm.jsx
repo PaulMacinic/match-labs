@@ -22,9 +22,9 @@ const CandidateForm = ({ fields, onSubmit }) => {
   };
 
   const onSelectChange = (selected) => {
-    // 3. copy values
+    // 4. copy values
     // find index of technologies input
-    // loop through the selected values
+    // map through the selected values
   };
 
   const formHandler = (e) => {
@@ -43,7 +43,7 @@ const CandidateForm = ({ fields, onSubmit }) => {
     <>
       <form onSubmit={formHandler} className={styles.form}>
         {values.map((field) => (
-          // 4. Check if field is not technologies
+          // 5. Check if field is not technologies
           <div key={field.name} className={styles.field}>
             <input
               required
@@ -53,7 +53,7 @@ const CandidateForm = ({ fields, onSubmit }) => {
               name={field.name}
             ></input>
           </div>
-          // 5. Bring prebuilt select
+          // 3. Bring prebuilt select
           // Add onSelectChange and options
         ))}
 
