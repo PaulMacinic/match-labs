@@ -4,6 +4,8 @@ import { CREATE_CANDIDATE_FIELDS } from "../mocks";
 import PageTitle from "../components/PageTitle";
 import { register, assignRole } from "../utils/request";
 import Loader from "../components/Loader";
+import styles from "Register.module.css";
+import Button from "../components/Button";
 
 const Register = () => {
   const [isLoading, setIsLoading] = useState(null);
@@ -25,29 +27,29 @@ const Register = () => {
   };
 
   const _renderRoleSelector = () => {
-    //  return (
-    //    <section className={styles.roles}>
-    //      <p className={styles.intro}>Are you a candidate or a company?</p>
-    //      <div className={styles.button}>
-    //        <Button
-    //          variant={"secondary"}
-    //          size={"huge"}
-    //          action={() => setRole("company")}
-    //        >
-    //          Company
-    //        </Button>
-    //      </div>
-    //      <div className={styles.button}>
-    //        <Button
-    //          variant={"secondary"}
-    //          size={"huge"}
-    //          action={() => setRole("candidate")}
-    //        >
-    //          Candidate
-    //        </Button>
-    //      </div>
-    //    </section>
-    //  );
+    // return (
+    //   <section className={styles.roles}>
+    //     <p className={styles.intro}>Are you a candidate or a company?</p>
+    //     <div className={styles.button}>
+    //       <Button
+    //         variant={"secondary"}
+    //         size={"huge"}
+    //         action={() => setRole("company")}
+    //       >
+    //         Company
+    //       </Button>
+    //     </div>
+    //     <div className={styles.button}>
+    //       <Button
+    //         variant={"secondary"}
+    //         size={"huge"}
+    //         action={() => setRole("candidate")}
+    //       >
+    //         Candidate
+    //       </Button>
+    //     </div>
+    //   </section>
+    );
   };
 
   if (isLoading) return <Loader />;
