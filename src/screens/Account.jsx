@@ -4,18 +4,34 @@ import CandidateForm from "../components/CandidateForm";
 import PageTitle from "../components/PageTitle";
 import { AppContext } from "../Context";
 import Loader from "../components/Loader";
-import { editAccount } from "../utils/request";
+import { editAccount, fetchLabs } from "../utils/request";
+import Card from "../components/Card";
 
 const Account = () => {
   const { user } = useContext(AppContext);
   const [fields, setFields] = useState(null);
+  const [lab, setLab] = useState(null);
+  const [labFields, setLabFields] = useState(null);
 
   useEffect(() => {
-    const newFields = Object.keys(user.personal).map((key) => ({
-      name: key,
-      value: user.personal[key],
-    }));
-    setFields(newFields);
+    const onMount = async () => {
+      const newFields = Object.keys(user.personal).map((key) => ({
+        name: key,
+        value: user.personal[key],
+      }));
+
+      const lab = await fetchLabs();
+
+      setFields(newFields);
+      setLab(lab);
+      setLabFields(
+        Object.keys(lab?.personal).map((key) => ({
+          name: key,
+          value: lab?.personal[key],
+        }))
+      );
+    };
+    onMount();
   }, [user]);
 
   const onFormSubmit = async (values) => {
@@ -30,7 +46,19 @@ const Account = () => {
       <PageTitle>
         <h3>Edit account</h3>
       </PageTitle>
-      <CandidateForm onSubmit={onFormSubmit} fields={fields}></CandidateForm>
+      {console.log(labFields)}
+      {!!labFields && (
+        <Card
+          imgUrl={lab.company.profile_image}
+          name={lab.personal.name}
+        ></Card>
+      )}
+      {/* <CandidateForm
+          onSubmit={onFormSubmit}
+          fields={labFields}
+        ></CandidateForm> */}
+
+      {/* <CandidateForm onSubmit={onFormSubmit} fields={fields}></CandidateForm> */}
     </>
   );
 };

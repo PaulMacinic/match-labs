@@ -15,6 +15,24 @@ const format = (data) => {
       };
 };
 
+const formatLab = (data) => {
+  return {
+    company: {
+      profile_image: data.company.profile_image,
+    },
+    personal: {
+      name: data.name,
+      technologies: data.technologies.map((t) => t.id),
+      spots: data.spots,
+      start_date: data.start_date,
+      end_date: data.end_date,
+      requirements: data.requirements,
+      selection_details: data.selection_details,
+      objectives: data.objectives,
+    },
+  };
+};
+
 const formatTechnologies = (data) => {
   return data.map((t) => ({
     value: t.id,
@@ -265,4 +283,15 @@ export const createLab = async (data) => {
   const json = await res.json();
 
   return json;
+};
+
+export const fetchLabs = async () => {
+  const res = await fetch(`${baseUrl}/labs`, {
+    method: "GET",
+    headers: { ...config.headers, ...config.authorization },
+  });
+  const json = await res.json();
+
+  const labs = json.map((lab) => formatLab(lab));
+  return labs[0];
 };
