@@ -49,7 +49,7 @@ const Register = () => {
     //       </Button>
     //     </div>
     //   </section>
-    );
+    // );
   };
 
   if (isLoading) return <Loader />;
