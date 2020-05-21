@@ -24,6 +24,32 @@ const Register = () => {
     const account = await assignRole({ email, ...values });
   };
 
+  const _renderRoleSelector = () => {
+    //  return (
+    //    <section className={styles.roles}>
+    //      <p className={styles.intro}>Are you a candidate or a company?</p>
+    //      <div className={styles.button}>
+    //        <Button
+    //          variant={"secondary"}
+    //          size={"huge"}
+    //          action={() => setRole("company")}
+    //        >
+    //          Company
+    //        </Button>
+    //      </div>
+    //      <div className={styles.button}>
+    //        <Button
+    //          variant={"secondary"}
+    //          size={"huge"}
+    //          action={() => setRole("candidate")}
+    //        >
+    //          Candidate
+    //        </Button>
+    //      </div>
+    //    </section>
+    //  );
+  };
+
   if (isLoading) return <Loader />;
 
   return (
