@@ -28,7 +28,7 @@ const Swiper = ({ items }) => {
     // );
   };
 
-  // if (!items) return <Loader></Loader>;
+  // if (!items.length) return <Loader></Loader>;
 
   return (
     <section className={styles.swiper}>
