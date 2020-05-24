@@ -275,27 +275,6 @@ export const dislike = async (id) => {
   return json;
 };
 
-export const createLab = async (data) => {
-  const res = await fetch(`${baseUrl}/labs`, {
-    method: "POST",
-    headers: { ...config.headers, ...config.authorization },
-    body: JSON.stringify(data),
-  });
-  const json = await res.json();
-
-  return json;
-};
-
-export const deleteLab = async (id) => {
-  const res = await fetch(`${baseUrl}/labs/${id}`, {
-    method: "DELETE",
-    headers: { ...config.headers, ...config.authorization },
-  });
-  const json = await res.json();
-
-  return json;
-};
-
 export const fetchLabs = async () => {
   const res = await fetch(`${baseUrl}/labs`, {
     method: "GET",
@@ -307,9 +286,9 @@ export const fetchLabs = async () => {
   return labs[0];
 };
 
-export const editLab = async (id, data) => {
-  const res = await fetch(`${baseUrl}/labs/${id}`, {
-    method: "PUT",
+export const createLab = async (data) => {
+  const res = await fetch(`${baseUrl}/labs`, {
+    method: "POST",
     headers: { ...config.headers, ...config.authorization },
     body: JSON.stringify(data),
   });
