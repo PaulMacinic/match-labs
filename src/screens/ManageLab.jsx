@@ -85,7 +85,7 @@ const ManageLab = () => {
   const _renderCreateLab = () => {
     return (
       <>
-        <Card outline></Card>
+        <Card imgUrl={require("../static/svg/logo.svg")} outline></Card>
         <div className={styles.button}>
           <Button
             action={() => setIsCreating(!isCreating)}
