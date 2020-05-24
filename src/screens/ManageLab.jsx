@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "../components/Card";
 import styles from "./ManageLab.module.css";
 import Button from "../components/Button";
-import { fetchLabs, editLab, createLab } from "../utils/request";
+import { fetchLabs, createLab } from "../utils/request";
 import { useEffect } from "react";
 import CandidateForm from "../components/CandidateForm";
 import Loader from "../components/Loader";
@@ -10,9 +10,8 @@ import { MANAGE_LAB_FIELDS } from "../mocks";
 
 const ManageLab = () => {
   const [lab, setLab] = useState(null);
-  const [labFields, setLabFields] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
+  // 5. create labFields
 
   useEffect(() => {
     getLab();
@@ -22,16 +21,7 @@ const ManageLab = () => {
     const lab = await fetchLabs();
     setLab(lab);
 
-    if (lab) {
-      const { id, ...rest } = lab.personal;
-
-      setLabFields(
-        Object.keys(rest).map((key) => ({
-          name: key,
-          value: rest[key],
-        }))
-      );
-    }
+    // 4. if lab setLabFields() for CandidateForm
   };
 
   const deleteLab = async () => {
@@ -40,17 +30,21 @@ const ManageLab = () => {
 
   const onFormSubmit = async (values) => {
     const { start_date, technologies, ...rest } = values;
-    const labObj = { lab: rest, technologies };
+    const labObj = {
+      lab: rest,
+      technologies,
+    };
 
-    isEditing
-      ? await editLab(lab.personal.id, labObj)
-      : await createLab(labObj);
-
+    // 6. if isEditing editLab || createLab
+    await createLab(labObj);
     await getLab();
-    isEditing ? setIsEditing(!isEditing) : setIsCreating(!isCreating);
+
+    // 7. if isEditing setIsEditing || setIsCreating
   };
 
   const _renderEditLab = () => {
+    // 1. Render Card and buttons
+    // 2. setIsEdiding(!isEditing)
     return (
       <>
         <Card
@@ -64,16 +58,12 @@ const ManageLab = () => {
         ></Card>
         <div className={styles.buttons}>
           <div className={styles.button}>
-            <Button
-              action={() => setIsEditing(!isEditing)}
-              variant={"primary"}
-              size={"small"}
-            >
+            <Button variant={"primary"} size={"small"}>
               Edit lab
             </Button>
           </div>
           <div className={styles.button}>
-            <Button action={deleteLab} variant={"secondary"} size={"small"}>
+            <Button variant={"secondary"} size={"small"}>
               Delete lab
             </Button>
           </div>
@@ -85,7 +75,7 @@ const ManageLab = () => {
   const _renderCreateLab = () => {
     return (
       <>
-        <Card outline></Card>
+        <Card outline imgUrl={require("../static/svg/logo.svg")}></Card>
         <div className={styles.button}>
           <Button
             action={() => setIsCreating(!isCreating)}
@@ -104,17 +94,10 @@ const ManageLab = () => {
   return (
     <div className={"box-wide"}>
       <div className={styles.manageLab}>
-        {lab && !isEditing && _renderEditLab()}
-
-        {lab && isEditing && (
-          <CandidateForm
-            fields={labFields}
-            onSubmit={onFormSubmit}
-          ></CandidateForm>
-        )}
+        {/* 3. if isEditing render candidateForm */}
+        {/* create isEditing  */}
 
         {!lab && !isCreating && _renderCreateLab()}
-
         {!lab && isCreating && (
           <CandidateForm
             fields={MANAGE_LAB_FIELDS}
