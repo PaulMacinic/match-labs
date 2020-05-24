@@ -46,6 +46,7 @@ const App = () => {
             <ProtectedRoute path="/profile/:id" component={Profile} />
             <ProtectedRoute path="/account" component={Account} />
             <ProtectedRoute path="/lab" component={ManageLab} />
+
             <ProtectedRoute exact path="/" component={Likes} />
             <ProtectedRoute path="*">404</ProtectedRoute>
           </Switch>

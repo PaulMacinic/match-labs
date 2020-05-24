@@ -21,8 +21,9 @@ const formatLab = (data) => {
       profile_image: data.company.profile_image,
     },
     personal: {
+      id: data.id,
       name: data.name,
-      technologies: data.technologies.map((t) => t.id),
+      technologies: formatTechnologies(data.technologies),
       spots: data.spots,
       start_date: data.start_date,
       end_date: data.end_date,
@@ -285,6 +286,16 @@ export const createLab = async (data) => {
   return json;
 };
 
+export const deleteLab = async (id) => {
+  const res = await fetch(`${baseUrl}/labs/${id}`, {
+    method: "DELETE",
+    headers: { ...config.headers, ...config.authorization },
+  });
+  const json = await res.json();
+
+  return json;
+};
+
 export const fetchLabs = async () => {
   const res = await fetch(`${baseUrl}/labs`, {
     method: "GET",
@@ -294,4 +305,15 @@ export const fetchLabs = async () => {
 
   const labs = json.map((lab) => formatLab(lab));
   return labs[0];
+};
+
+export const editLab = async (id, data) => {
+  const res = await fetch(`${baseUrl}/labs/${id}`, {
+    method: "PUT",
+    headers: { ...config.headers, ...config.authorization },
+    body: JSON.stringify(data),
+  });
+  const json = await res.json();
+
+  return json;
 };

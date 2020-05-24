@@ -18,6 +18,10 @@ const CandidateForm = ({ fields, onSubmit }) => {
     onMount();
   }, []);
 
+  useEffect(() => {
+    setValues(fields);
+  }, [fields]);
+
   const onChange = (e) => {
     const newValues = [...values];
     const index = newValues.findIndex((value) => value.name === e.target.name);
