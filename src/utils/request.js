@@ -291,9 +291,6 @@ export const deleteLab = async (id) => {
     method: "DELETE",
     headers: { ...config.headers, ...config.authorization },
   });
-  const json = await res.json();
-
-  return json;
 };
 
 export const fetchLabs = async () => {

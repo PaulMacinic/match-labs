@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "../components/Card";
 import styles from "./ManageLab.module.css";
 import Button from "../components/Button";
-import { fetchLabs, editLab, createLab } from "../utils/request";
+import { fetchLabs, editLab, createLab, deleteLab } from "../utils/request";
 import { useEffect } from "react";
 import CandidateForm from "../components/CandidateForm";
 import Loader from "../components/Loader";
@@ -34,12 +34,13 @@ const ManageLab = () => {
     }
   };
 
-  const deleteLab = async () => {
-    const deleted = await deleteLab(lab.id);
+  const deleteALab = async () => {
+    await deleteLab(lab.personal.id);
+    getLab();
   };
 
   const onFormSubmit = async (values) => {
-    const { start_date, technologies, ...rest } = values;
+    const { technologies, ...rest } = values;
     const labObj = { lab: rest, technologies };
 
     isEditing
@@ -73,7 +74,11 @@ const ManageLab = () => {
             </Button>
           </div>
           <div className={styles.button}>
-            <Button action={deleteLab} variant={"secondary"} size={"small"}>
+            <Button
+              action={() => deleteALab()}
+              variant={"secondary"}
+              size={"small"}
+            >
               Delete lab
             </Button>
           </div>
