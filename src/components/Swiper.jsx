@@ -7,11 +7,12 @@ import Loader from "./Loader";
 import { CSSTransition } from "react-transition-group";
 import { useState } from "react";
 import { like, dislike } from "../utils/request";
+import Match from "./Match";
 
 const Swiper = ({ items, callback }) => {
   const { user } = useContext(AppContext);
   const [values, setValues] = useState({ swiped: true, direction: "" });
-
+  const [match, setMatch] = useState(false)
   const next = items[items.length - 2];
   const current = items[items.length - 1];
 
@@ -21,7 +22,10 @@ const Swiper = ({ items, callback }) => {
         ? await like(current.id)
         : await dislike(current.id);
 
-    setValues({ swiped: false, direction });
+    if(!liked.match)
+      setValues({ swiped: false, direction });
+    else
+      setMatch(true)
   };
 
   const reset = () => {
@@ -42,6 +46,10 @@ const Swiper = ({ items, callback }) => {
   };
 
   if (!items.length) return <Loader></Loader>;
+
+  if (match) {
+    return <Match candidateData={user.role === 'candidate' ? {...user.personal, name:`${user.personal.first_name} ${user.personal.last_name}`} : current} companyData={user.role === 'company' ? user.personal : current.company} callback={callback}/>;
+  }
 
   return (
     <section className={styles.swiper}>
@@ -74,7 +82,7 @@ const Swiper = ({ items, callback }) => {
             to={`/profile/${current.id}`}
             className={`${styles.cardContainer} ${
               styles[values.direction] || ""
-            } `}
+              } `}
           >
             <Card
               outline={user.role === "candidate"}
