@@ -44,7 +44,6 @@ const ManageLab = () => {
 
   const _renderEditLab = () => {
     // 1. Render Card and buttons
-    // 2. setIsEdiding(!isEditing)
     return (
       <>
         <Card
@@ -58,6 +57,7 @@ const ManageLab = () => {
         ></Card>
         <div className={styles.buttons}>
           <div className={styles.button}>
+            {/*  2. setIsEditing(!isEditing) */}
             <Button variant={"primary"} size={"small"}>
               Edit lab
             </Button>
