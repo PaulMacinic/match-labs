@@ -47,7 +47,7 @@ const Library = (props) => {
             <Link key={match.id} to={`/profile/${match.id}`}>
               <Card
                 outline={user.role === "candidate"}
-                imgUrl={match.profile_image || match.company.profile_image}
+                imgUrl={match?.profile_image || match?.company?.profile_image}
                 name={match.name}
                 technologies={match.technologies}
               ></Card>
