@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import CandidateForm from "../../components/CandidateForm";
-import { AppContext } from "../../Context";
-import Loader from "../../components/Loader";
-import PageTitle from "../../components/PageTitle";
-import { editAccount, fetchLabs } from "../../utils/request";
+import CandidateForm from "../components/CandidateForm";
+import { AppContext } from "../Context";
+import Loader from "../components/Loader";
+import PageTitle from "../components/PageTitle";
+import { editAccount, fetchLabs } from "../utils/request";
 import styles from "./Account.module.css";
 
 const Account = () => {
