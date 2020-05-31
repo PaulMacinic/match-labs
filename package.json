@@ -17,19 +17,5 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
-  },
-  "scripts": {
-    "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PaulMacinic/match-labs-private.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/PaulMacinic/match-labs-private/issues"
-  },
-  "homepage": "https://github.com/PaulMacinic/match-labs-private#readme"
+  }
 }
