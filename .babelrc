@@ -1,0 +1,5 @@
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
+// babel preset env for compiling modern Javascript down to ES5
+// babel preset react for compiling JSX to Javascript

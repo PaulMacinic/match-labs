@@ -1,6 +1,5 @@
-import React from "react";
+import App from "./components/App";
 import ReactDOM from "react-dom";
-import App from "./App";
-import "./static/Base.css";
+import React from "react";
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+ReactDOM.render(<App />, document.getElementById("root"));
